@@ -8,6 +8,8 @@ The typical target compiler is ARM GCC, and it has been developed using version 
 
 The main goal is to make it as easy as possible to use with STM32 targets.
 
+Code documentation is available at https://eznovsas.github.io/OpSy/
+
 # History
 
 This version of OpSy is the third main iteration of the RTOS. I started the very first implementation when working on the Neuron Flybarless unit.
