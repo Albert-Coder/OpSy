@@ -2,6 +2,7 @@ var searchData=
 [
   ['khighestpriority',['kHighestPriority',['../classopsy_1_1_cortex_m.html#a4c08879bcbd512307ab06794d3256d34',1,'opsy::CortexM']]],
   ['klowestpriority',['kLowestPriority',['../classopsy_1_1_cortex_m.html#a03fe7694e2d07a22bc19d7a53a524d68',1,'opsy::CortexM']]],
+  ['kmaxpreemptionbits',['kMaxPreemptionBits',['../classopsy_1_1_isr_priority.html#a18cc2a77d6544f7c58fc759b9e350bde',1,'opsy::IsrPriority']]],
   ['kopsypreemption',['kOpsyPreemption',['../_config_8hpp.html#a3855001525a1670250a0d6a921a34777',1,'opsy']]],
   ['kpendsvpriority',['kPendSvPriority',['../classopsy_1_1_scheduler.html#a6bf5cbe1b171954e3670313b24a8c19b',1,'opsy::Scheduler']]],
   ['kpreemptionbits',['kPreemptionBits',['../_config_8hpp.html#a089bb764b30700b18653c476bc2d7a2b',1,'opsy']]],

@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -47,6 +55,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('classopsy_1_1_scheduler.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,15 +86,11 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><b>opsy</b></li><li class="navelem"><a class="el" href="classopsy_1_1_scheduler.html">Scheduler</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="classopsy_1_1_scheduler-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">opsy::Scheduler Class Reference</div>  </div>
@@ -83,34 +104,43 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a43cc2c8cecab86c05bd7d524f7816858"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classopsy_1_1_scheduler.html#a43cc2c8cecab86c05bd7d524f7816858">start</a> (<a class="el" href="classopsy_1_1_idle_task_control_block.html">IdleTaskControlBlock</a> &amp;idle=DefaultIdle&lt;&gt;)</td></tr>
-<tr class="memdesc:a43cc2c8cecab86c05bd7d524f7816858"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the <code><a class="el" href="classopsy_1_1_scheduler.html" title="The Scheduler is the OpSy manager, it handles Task switch, timeouts, etc.">Scheduler</a></code>.  <a href="#a43cc2c8cecab86c05bd7d524f7816858">More...</a><br /></td></tr>
-<tr class="separator:a43cc2c8cecab86c05bd7d524f7816858"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9577c4af5b55be8441ba60a80a41949"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classopsy_1_1_scheduler.html#ac9577c4af5b55be8441ba60a80a41949">start</a> (<a class="el" href="classopsy_1_1_idle_task_control_block.html">IdleTaskControlBlock</a> &amp;idle=DefaultIdle&lt;&gt;)</td></tr>
+<tr class="memdesc:ac9577c4af5b55be8441ba60a80a41949"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the <code><a class="el" href="classopsy_1_1_scheduler.html" title="The Scheduler is the OpSy manager, it handles Task switch, timeouts, etc.">Scheduler</a></code>.  <a href="#ac9577c4af5b55be8441ba60a80a41949">More...</a><br /></td></tr>
+<tr class="separator:ac9577c4af5b55be8441ba60a80a41949"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad26aa2f180077eeae1c226530500bbcd"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="classopsy_1_1_embedded_list.html">EmbeddedList</a>&lt; <a class="el" href="classopsy_1_1_task_control_block.html">TaskControlBlock</a>, TaskLists::Handle &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classopsy_1_1_scheduler.html#ad26aa2f180077eeae1c226530500bbcd">allTasks</a> ()</td></tr>
 <tr class="memdesc:ad26aa2f180077eeae1c226530500bbcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a read only reference to the <code><a class="el" href="classopsy_1_1_embedded_list.html" title="A linked list container that uses the contained item to store forward and backward pointers.">EmbeddedList</a></code> of <code><a class="el" href="classopsy_1_1_task.html" title="A concrete implementation of TaskControlBlock with a dedicated stack memory.">Task</a></code> currently active.  <a href="#ad26aa2f180077eeae1c226530500bbcd">More...</a><br /></td></tr>
 <tr class="separator:ad26aa2f180077eeae1c226530500bbcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5a1c5e5862c39d8ee5abddf07656c98"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="_config_8hpp.html#a673cca93e165a2e293694ab06836bf2e">time_point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classopsy_1_1_scheduler.html#af5a1c5e5862c39d8ee5abddf07656c98">now</a> ()</td></tr>
 <tr class="memdesc:af5a1c5e5862c39d8ee5abddf07656c98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current <code>time_point</code>.  <a href="#af5a1c5e5862c39d8ee5abddf07656c98">More...</a><br /></td></tr>
 <tr class="separator:af5a1c5e5862c39d8ee5abddf07656c98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2eca6bbbceab1aecba26c486ea5332b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classopsy_1_1_critical_section.html">CriticalSection</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classopsy_1_1_scheduler.html#af2eca6bbbceab1aecba26c486ea5332b">criticalSection</a> ()</td></tr>
+<tr class="memdesc:af2eca6bbbceab1aecba26c486ea5332b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Try to get a valid <code><a class="el" href="classopsy_1_1_critical_section.html" title="A critical section handle.">CriticalSection</a></code> from the <code><a class="el" href="classopsy_1_1_scheduler.html" title="The Scheduler is the OpSy manager, it handles Task switch, timeouts, etc.">Scheduler</a></code>.  <a href="#af2eca6bbbceab1aecba26c486ea5332b">More...</a><br /></td></tr>
+<tr class="separator:af2eca6bbbceab1aecba26c486ea5332b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:a351bf437bc521add65b09b280c60f90d"><td class="memItemLeft" align="right" valign="top"><a id="a351bf437bc521add65b09b280c60f90d"></a>
-static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classopsy_1_1_scheduler.html#a351bf437bc521add65b09b280c60f90d">kServiceCallPriority</a> = <a class="el" href="classopsy_1_1_isr_priority.html#acfc0254ccf829c0bbc0095695f7a335e">IsrPriority::FromPreemptSub</a>(kOpsyPreemption, 0)</td></tr>
+static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classopsy_1_1_scheduler.html#a351bf437bc521add65b09b280c60f90d">kServiceCallPriority</a> = <a class="el" href="classopsy_1_1_isr_priority.html#acfc0254ccf829c0bbc0095695f7a335e">IsrPriority::FromPreemptSub</a>&lt;kPreemptionBits&gt;(kOpsyPreemption, 0)</td></tr>
 <tr class="memdesc:a351bf437bc521add65b09b280c60f90d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Service Call <code><a class="el" href="classopsy_1_1_isr_priority.html" title="An interrupt service (or Mutex) priority.">IsrPriority</a></code>, it is set to system preemption and most important sub-priority. <br /></td></tr>
 <tr class="separator:a351bf437bc521add65b09b280c60f90d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5494b55f9440558e1fd94e7dc751867"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classopsy_1_1_scheduler.html#ab5494b55f9440558e1fd94e7dc751867">kSystickPriority</a> = <a class="el" href="classopsy_1_1_isr_priority.html#acfc0254ccf829c0bbc0095695f7a335e">IsrPriority::FromPreemptSub</a>(kOpsyPreemption, <a class="el" href="classopsy_1_1_cortex_m.html#a0dcca34774c691dfb00604093c583fa1">CortexM::minSub</a>())</td></tr>
+<tr class="memitem:ab5494b55f9440558e1fd94e7dc751867"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classopsy_1_1_scheduler.html#ab5494b55f9440558e1fd94e7dc751867">kSystickPriority</a> = <a class="el" href="classopsy_1_1_isr_priority.html#acfc0254ccf829c0bbc0095695f7a335e">IsrPriority::FromPreemptSub</a>&lt;kPreemptionBits&gt;(kOpsyPreemption, <a class="el" href="classopsy_1_1_cortex_m.html#a0dcca34774c691dfb00604093c583fa1">CortexM::minSub</a>())</td></tr>
 <tr class="memdesc:ab5494b55f9440558e1fd94e7dc751867"><td class="mdescLeft">&#160;</td><td class="mdescRight">The Systick <code><a class="el" href="classopsy_1_1_isr_priority.html" title="An interrupt service (or Mutex) priority.">IsrPriority</a></code>, it is set to system preemption and least important sub-priority.  <a href="#ab5494b55f9440558e1fd94e7dc751867">More...</a><br /></td></tr>
 <tr class="separator:ab5494b55f9440558e1fd94e7dc751867"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6bf5cbe1b171954e3670313b24a8c19b"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classopsy_1_1_scheduler.html#a6bf5cbe1b171954e3670313b24a8c19b">kPendSvPriority</a> = <a class="el" href="classopsy_1_1_isr_priority.html#acfc0254ccf829c0bbc0095695f7a335e">IsrPriority::FromPreemptSub</a>(<a class="el" href="classopsy_1_1_cortex_m.html#aa0208a667dbb9476ecedaa9a2aee11ef">CortexM::minPreempt</a>(), <a class="el" href="classopsy_1_1_cortex_m.html#a0dcca34774c691dfb00604093c583fa1">CortexM::minSub</a>())</td></tr>
+<tr class="memitem:a6bf5cbe1b171954e3670313b24a8c19b"><td class="memItemLeft" align="right" valign="top">static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classopsy_1_1_scheduler.html#a6bf5cbe1b171954e3670313b24a8c19b">kPendSvPriority</a> = <a class="el" href="classopsy_1_1_isr_priority.html#acfc0254ccf829c0bbc0095695f7a335e">IsrPriority::FromPreemptSub</a>&lt;kPreemptionBits&gt;(<a class="el" href="classopsy_1_1_cortex_m.html#aa0208a667dbb9476ecedaa9a2aee11ef">CortexM::minPreempt</a>(), <a class="el" href="classopsy_1_1_cortex_m.html#a0dcca34774c691dfb00604093c583fa1">CortexM::minSub</a>())</td></tr>
 <tr class="memdesc:a6bf5cbe1b171954e3670313b24a8c19b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The PendSV <code><a class="el" href="classopsy_1_1_isr_priority.html" title="An interrupt service (or Mutex) priority.">IsrPriority</a></code>, is it set to the minimum preemption and sub-priority possible.  <a href="#a6bf5cbe1b171954e3670313b24a8c19b">More...</a><br /></td></tr>
 <tr class="separator:a6bf5cbe1b171954e3670313b24a8c19b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a66ed1ab0f066810391f4cf1b7b887fff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classopsy_1_1_scheduler.html#a66ed1ab0f066810391f4cf1b7b887fff">sleep_for</a> (<a class="el" href="_config_8hpp.html#aa1510483505b88952c221aa3b27054a4">duration</a> t)</td></tr>
+<tr class="memdesc:a66ed1ab0f066810391f4cf1b7b887fff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts the <code><a class="el" href="classopsy_1_1_task.html" title="A concrete implementation of TaskControlBlock with a dedicated stack memory.">Task</a></code> to sleep for a given <code>duration</code>.  <a href="#a66ed1ab0f066810391f4cf1b7b887fff">More...</a><br /></td></tr>
+<tr class="separator:a66ed1ab0f066810391f4cf1b7b887fff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <code><a class="el" href="classopsy_1_1_scheduler.html" title="The Scheduler is the OpSy manager, it handles Task switch, timeouts, etc.">Scheduler</a></code> is the OpSy manager, it handles <code><a class="el" href="classopsy_1_1_task.html" title="A concrete implementation of TaskControlBlock with a dedicated stack memory.">Task</a></code> switch, timeouts, etc. </p>
 <dl class="section remark"><dt>Remarks</dt><dd>You can start <code><a class="el" href="classopsy_1_1_task.html" title="A concrete implementation of TaskControlBlock with a dedicated stack memory.">Task</a></code> before the <code><a class="el" href="classopsy_1_1_scheduler.html" title="The Scheduler is the OpSy manager, it handles Task switch, timeouts, etc.">Scheduler</a></code> is started, but they will not be executed until the <code><a class="el" href="classopsy_1_1_scheduler.html" title="The Scheduler is the OpSy manager, it handles Task switch, timeouts, etc.">Scheduler</a></code> is started </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_scheduler_8hpp_source.html#l00076">76</a> of file <a class="el" href="_scheduler_8hpp_source.html">Scheduler.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_scheduler_8hpp_source.html#l00075">75</a> of file <a class="el" href="_scheduler_8hpp_source.html">Scheduler.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ad26aa2f180077eeae1c226530500bbcd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad26aa2f180077eeae1c226530500bbcd">&#9670;&nbsp;</a></span>allTasks()</h2>
@@ -138,8 +168,40 @@ static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a clas
 <p>Gets a read only reference to the <code><a class="el" href="classopsy_1_1_embedded_list.html" title="A linked list container that uses the contained item to store forward and backward pointers.">EmbeddedList</a></code> of <code><a class="el" href="classopsy_1_1_task.html" title="A concrete implementation of TaskControlBlock with a dedicated stack memory.">Task</a></code> currently active. </p>
 <dl class="section return"><dt>Returns</dt><dd>A read only reference to the <code><a class="el" href="classopsy_1_1_embedded_list.html" title="A linked list container that uses the contained item to store forward and backward pointers.">EmbeddedList</a></code> of <code><a class="el" href="classopsy_1_1_task.html" title="A concrete implementation of TaskControlBlock with a dedicated stack memory.">Task</a></code> currently active </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_scheduler_8hpp_source.html#l00116">116</a> of file <a class="el" href="_scheduler_8hpp_source.html">Scheduler.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_scheduler_8hpp_source.html#l00115">115</a> of file <a class="el" href="_scheduler_8hpp_source.html">Scheduler.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    {</div><div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        assert(s_isStarted);</div><div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="keywordflow">return</span> s_allTasks;</div><div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    }</div></div><!-- fragment -->
+</div>
+</div>
+<a id="af2eca6bbbceab1aecba26c486ea5332b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2eca6bbbceab1aecba26c486ea5332b">&#9670;&nbsp;</a></span>criticalSection()</h2>
 
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classopsy_1_1_critical_section.html">CriticalSection</a> opsy::Scheduler::criticalSection </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Try to get a valid <code><a class="el" href="classopsy_1_1_critical_section.html" title="A critical section handle.">CriticalSection</a></code> from the <code><a class="el" href="classopsy_1_1_scheduler.html" title="The Scheduler is the OpSy manager, it handles Task switch, timeouts, etc.">Scheduler</a></code>. </p>
+<dl class="section return"><dt>Returns</dt><dd>A <code><a class="el" href="classopsy_1_1_critical_section.html" title="A critical section handle.">CriticalSection</a></code> with state <code>true</code> if possible, <code>false</code> otherwise (already in critical section) </dd></dl>
+<dl class="section remark"><dt>Remarks</dt><dd>Use this only for <code><a class="el" href="classopsy_1_1_task.html" title="A concrete implementation of TaskControlBlock with a dedicated stack memory.">Task</a></code> to <code><a class="el" href="classopsy_1_1_task.html" title="A concrete implementation of TaskControlBlock with a dedicated stack memory.">Task</a></code> synchronization, prefer <code>Mutex</code> for a more generic synchronization (uses <code><a class="el" href="classopsy_1_1_isr_priority.html" title="An interrupt service (or Mutex) priority.">IsrPriority</a></code> to sychronize with interrupt service routines) </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_scheduler_8hpp_source.html#l00136">136</a> of file <a class="el" href="_scheduler_8hpp_source.html">Scheduler.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    {</div><div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        <span class="keywordflow">if</span> (s_criticalSection) <span class="comment">// was already in critical section, iterative is OK but the new object is invalid, meaning the critical section is ended only when the first (the only valid) object is released</span></div><div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div><div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        <span class="keywordflow">else</span></div><div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        {</div><div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;            <a class="code" href="classopsy_1_1_hooks.html#a249e22fbd1dc3746f674d485b044f7b6">Hooks::enterCriticalSection</a>();</div><div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;            <span class="keywordflow">return</span> s_criticalSection = <span class="keyword">true</span>;</div><div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        }</div><div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    }</div><div class="ttc" id="classopsy_1_1_hooks_html_a249e22fbd1dc3746f674d485b044f7b6"><div class="ttname"><a href="classopsy_1_1_hooks.html#a249e22fbd1dc3746f674d485b044f7b6">opsy::Hooks::enterCriticalSection</a></div><div class="ttdeci">static constexpr void enterCriticalSection()</div><div class="ttdoc">Called when a Task enters a critical section (prevents task switching)</div><div class="ttdef"><b>Definition:</b> <a href="_hooks_8hpp_source.html#l00186">Hooks.hpp:186</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="af5a1c5e5862c39d8ee5abddf07656c98"></a>
@@ -168,12 +230,15 @@ static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a clas
 <p>Gets the current <code>time_point</code>. </p>
 <dl class="section return"><dt>Returns</dt><dd>The current <code>time_point</code> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_scheduler_8hpp_source.html#l00126">126</a> of file <a class="el" href="_scheduler_8hpp_source.html">Scheduler.hpp</a>.</p>
-
+<p class="definition">Definition at line <a class="el" href="_scheduler_8hpp_source.html#l00125">125</a> of file <a class="el" href="_scheduler_8hpp_source.html">Scheduler.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    {</div><div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        assert(s_isStarted &amp;&amp; <a class="code" href="classopsy_1_1_cortex_m.html#a23a0919492f5ce5deae7f825a297ae30">CortexM::currentPriority</a>().value_or(<a class="code" href="classopsy_1_1_cortex_m.html#a03fe7694e2d07a22bc19d7a53a524d68">CortexM::kLowestPriority</a>).value() &gt;= <a class="code" href="classopsy_1_1_scheduler.html#ab5494b55f9440558e1fd94e7dc751867">kSystickPriority</a>.value());</div><div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        <span class="keywordflow">return</span> s_ticks;</div><div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    }</div><div class="ttc" id="classopsy_1_1_cortex_m_html_a23a0919492f5ce5deae7f825a297ae30"><div class="ttname"><a href="classopsy_1_1_cortex_m.html#a23a0919492f5ce5deae7f825a297ae30">opsy::CortexM::currentPriority</a></div><div class="ttdeci">static std::optional&lt; IsrPriority &gt; currentPriority()</div><div class="ttdoc">Tries to get the priority of the currently executing interrupt service routine.</div><div class="ttdef"><b>Definition:</b> <a href="_cortex_m_8hpp_source.html#l00489">CortexM.hpp:489</a></div></div>
+<div class="ttc" id="classopsy_1_1_cortex_m_html_a03fe7694e2d07a22bc19d7a53a524d68"><div class="ttname"><a href="classopsy_1_1_cortex_m.html#a03fe7694e2d07a22bc19d7a53a524d68">opsy::CortexM::kLowestPriority</a></div><div class="ttdeci">static constexpr IsrPriority kLowestPriority</div><div class="ttdoc">Lowest priority available in the system.</div><div class="ttdef"><b>Definition:</b> <a href="_cortex_m_8hpp_source.html#l00149">CortexM.hpp:149</a></div></div>
+<div class="ttc" id="classopsy_1_1_scheduler_html_ab5494b55f9440558e1fd94e7dc751867"><div class="ttname"><a href="classopsy_1_1_scheduler.html#ab5494b55f9440558e1fd94e7dc751867">opsy::Scheduler::kSystickPriority</a></div><div class="ttdeci">static constexpr auto kSystickPriority</div><div class="ttdoc">The Systick IsrPriority, it is set to system preemption and least important sub-priority.</div><div class="ttdef"><b>Definition:</b> <a href="_scheduler_8hpp_source.html#l00096">Scheduler.hpp:96</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
-<a id="a43cc2c8cecab86c05bd7d524f7816858"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a43cc2c8cecab86c05bd7d524f7816858">&#9670;&nbsp;</a></span>start()</h2>
+<a id="ac9577c4af5b55be8441ba60a80a41949"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9577c4af5b55be8441ba60a80a41949">&#9670;&nbsp;</a></span>start()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -182,7 +247,7 @@ static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a clas
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool opsy::Scheduler::start </td>
+          <td class="memname">static bool opsy::Scheduler::start </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classopsy_1_1_idle_task_control_block.html">IdleTaskControlBlock</a> &amp;&#160;</td>
           <td class="paramname"><em>idle</em> = <code>DefaultIdle&lt;&gt;</code></td><td>)</td>
@@ -205,8 +270,40 @@ static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a clas
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if the <code><a class="el" href="classopsy_1_1_scheduler.html" title="The Scheduler is the OpSy manager, it handles Task switch, timeouts, etc.">Scheduler</a></code> started, <code>false</code> otherwise (already started) </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_scheduler_8cpp_source.html#l00019">19</a> of file <a class="el" href="_scheduler_8cpp_source.html">Scheduler.cpp</a>.</p>
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="a66ed1ab0f066810391f4cf1b7b887fff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66ed1ab0f066810391f4cf1b7b887fff">&#9670;&nbsp;</a></span>sleep_for</h2>
 
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void sleep_for </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_config_8hpp.html#aa1510483505b88952c221aa3b27054a4">duration</a>&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Puts the <code><a class="el" href="classopsy_1_1_task.html" title="A concrete implementation of TaskControlBlock with a dedicated stack memory.">Task</a></code> to sleep for a given <code>duration</code>. </p>
+<dl class="section warning"><dt>Warning</dt><dd>This should only be called from <code><a class="el" href="classopsy_1_1_task.html" title="A concrete implementation of TaskControlBlock with a dedicated stack memory.">Task</a></code> and never from interrupt service routine </dd>
+<dd>
+Make sure you release all <code>Mutex</code> before you call <code>sleep_for</code> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="opsy_8hpp_source.html#l00057">57</a> of file <a class="el" href="opsy_8hpp_source.html">opsy.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;{</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">asm</span> <span class="keyword">volatile</span>(</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="stringliteral">&quot;mov r0, %[count] \t\n&quot;</span></div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="stringliteral">&quot;svc %[immediate] \t\n&quot;</span></div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            :</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            : [immediate] <span class="stringliteral">&quot;I&quot;</span> (Scheduler::ServiceCallNumber::Sleep), [count] <span class="stringliteral">&quot;r&quot;</span> (t.count())</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            : <span class="stringliteral">&quot;r0&quot;</span>);</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div></div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -220,7 +317,7 @@ static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a clas
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr auto opsy::Scheduler::kPendSvPriority = <a class="el" href="classopsy_1_1_isr_priority.html#acfc0254ccf829c0bbc0095695f7a335e">IsrPriority::FromPreemptSub</a>(<a class="el" href="classopsy_1_1_cortex_m.html#aa0208a667dbb9476ecedaa9a2aee11ef">CortexM::minPreempt</a>(), <a class="el" href="classopsy_1_1_cortex_m.html#a0dcca34774c691dfb00604093c583fa1">CortexM::minSub</a>())</td>
+          <td class="memname">constexpr auto opsy::Scheduler::kPendSvPriority = <a class="el" href="classopsy_1_1_isr_priority.html#acfc0254ccf829c0bbc0095695f7a335e">IsrPriority::FromPreemptSub</a>&lt;kPreemptionBits&gt;(<a class="el" href="classopsy_1_1_cortex_m.html#aa0208a667dbb9476ecedaa9a2aee11ef">CortexM::minPreempt</a>(), <a class="el" href="classopsy_1_1_cortex_m.html#a0dcca34774c691dfb00604093c583fa1">CortexM::minSub</a>())</td>
         </tr>
       </table>
   </td>
@@ -233,7 +330,7 @@ static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a clas
 <p>The PendSV <code><a class="el" href="classopsy_1_1_isr_priority.html" title="An interrupt service (or Mutex) priority.">IsrPriority</a></code>, is it set to the minimum preemption and sub-priority possible. </p>
 <dl class="section remark"><dt>Remarks</dt><dd>But as soon as it starts, it will lock anything up to the Service Call </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_scheduler_8hpp_source.html#l00103">103</a> of file <a class="el" href="_scheduler_8hpp_source.html">Scheduler.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_scheduler_8hpp_source.html#l00102">102</a> of file <a class="el" href="_scheduler_8hpp_source.html">Scheduler.hpp</a>.</p>
 
 </div>
 </div>
@@ -247,7 +344,7 @@ static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a clas
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr auto opsy::Scheduler::kSystickPriority = <a class="el" href="classopsy_1_1_isr_priority.html#acfc0254ccf829c0bbc0095695f7a335e">IsrPriority::FromPreemptSub</a>(kOpsyPreemption, <a class="el" href="classopsy_1_1_cortex_m.html#a0dcca34774c691dfb00604093c583fa1">CortexM::minSub</a>())</td>
+          <td class="memname">constexpr auto opsy::Scheduler::kSystickPriority = <a class="el" href="classopsy_1_1_isr_priority.html#acfc0254ccf829c0bbc0095695f7a335e">IsrPriority::FromPreemptSub</a>&lt;kPreemptionBits&gt;(kOpsyPreemption, <a class="el" href="classopsy_1_1_cortex_m.html#a0dcca34774c691dfb00604093c583fa1">CortexM::minSub</a>())</td>
         </tr>
       </table>
   </td>
@@ -258,22 +355,25 @@ static constexpr auto&#160;</td><td class="memItemRight" valign="bottom"><a clas
 </div><div class="memdoc">
 
 <p>The Systick <code><a class="el" href="classopsy_1_1_isr_priority.html" title="An interrupt service (or Mutex) priority.">IsrPriority</a></code>, it is set to system preemption and least important sub-priority. </p>
-<dl class="section remark"><dt>Remarks</dt><dd>Any interrupt service routine with priority above this one, or <code><a class="el" href="classopsy_1_1_mutex.html" title="A mutual exclusive lock. It is used to protect shared data from being simultaneously accessed by mult...">Mutex</a></code> locks that locks higher priority, will NOT be able to use any of OpSy features </dd></dl>
+<dl class="section remark"><dt>Remarks</dt><dd>Any interrupt service routine with priority above this one, or <code>Mutex</code> locks that locks higher priority, will NOT be able to use any of OpSy features </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_scheduler_8hpp_source.html#l00097">97</a> of file <a class="el" href="_scheduler_8hpp_source.html">Scheduler.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_scheduler_8hpp_source.html#l00096">96</a> of file <a class="el" href="_scheduler_8hpp_source.html">Scheduler.hpp</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li>src/libs/opsy/<a class="el" href="_scheduler_8hpp_source.html">Scheduler.hpp</a></li>
-<li>src/libs/opsy/<a class="el" href="_scheduler_8cpp_source.html">Scheduler.cpp</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>OpSy/<a class="el" href="_scheduler_8hpp_source.html">Scheduler.hpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.15
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>opsy</b></li><li class="navelem"><a class="el" href="classopsy_1_1_scheduler.html">Scheduler</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
+  </ul>
+</div>
 </body>
 </html>

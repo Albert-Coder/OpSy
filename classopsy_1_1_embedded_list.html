@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -47,6 +55,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('classopsy_1_1_embedded_list.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,11 +86,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><b>opsy</b></li><li class="navelem"><a class="el" href="classopsy_1_1_embedded_list.html">EmbeddedList</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
@@ -236,7 +256,7 @@ template&lt;class Item, class Interface = Item&gt; </div>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="_embedded_list_8hpp_source.html#l00423">423</a> of file <a class="el" href="_embedded_list_8hpp_source.html">EmbeddedList.hpp</a>.</p>
-
+<div class="fragment"><div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;                                                 :</div><div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;            m_first(other.m_first), m_size(other.m_size)</div><div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;    {</div><div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;        other.m_first = <span class="keyword">nullptr</span>;</div><div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;        other.m_size = 0;</div><div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;    }</div></div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -269,7 +289,7 @@ template&lt;class Item, class Interface = Item&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>An <code><a class="el" href="classopsy_1_1_embedded_iterator.html" title="The EmbeddedList iterator, used to iterate over list items.">EmbeddedIterator</a></code> to the beginning of this <code><a class="el" href="classopsy_1_1_embedded_list.html" title="A linked list container that uses the contained item to store forward and backward pointers.">EmbeddedList</a></code> </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_embedded_list_8hpp_source.html#l00475">475</a> of file <a class="el" href="_embedded_list_8hpp_source.html">EmbeddedList.hpp</a>.</p>
-
+<div class="fragment"><div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;    {</div><div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;        <span class="keywordflow">return</span> m_first;</div><div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;    }</div></div><!-- fragment -->
 </div>
 </div>
 <a id="a7b0ec63b8f2418e2fdfcfcde2136e7a7"></a>
@@ -301,7 +321,7 @@ template&lt;class Item, class Interface = Item&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>An <code><a class="el" href="classopsy_1_1_embedded_const_iterator.html" title="The EmbeddedList constant iterator, used to iterator over list items in constant (non modifiable) con...">EmbeddedConstIterator</a></code> to the beginning of this <code><a class="el" href="classopsy_1_1_embedded_list.html" title="A linked list container that uses the contained item to store forward and backward pointers.">EmbeddedList</a></code> </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_embedded_list_8hpp_source.html#l00484">484</a> of file <a class="el" href="_embedded_list_8hpp_source.html">EmbeddedList.hpp</a>.</p>
-
+<div class="fragment"><div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;    {</div><div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;        <span class="keywordflow">return</span> m_first;</div><div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;    }</div></div><!-- fragment -->
 </div>
 </div>
 <a id="a679a1eda0e042daa4f2a31fb8bb65141"></a>
@@ -333,7 +353,7 @@ template&lt;class Item, class Interface = Item&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>An <code><a class="el" href="classopsy_1_1_embedded_iterator.html" title="The EmbeddedList iterator, used to iterate over list items.">EmbeddedIterator</a></code> to the end of this <code><a class="el" href="classopsy_1_1_embedded_list.html" title="A linked list container that uses the contained item to store forward and backward pointers.">EmbeddedList</a></code> </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_embedded_list_8hpp_source.html#l00511">511</a> of file <a class="el" href="_embedded_list_8hpp_source.html">EmbeddedList.hpp</a>.</p>
-
+<div class="fragment"><div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;    {</div><div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;        <span class="keywordflow">return</span> m_first;</div><div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;    }</div></div><!-- fragment -->
 </div>
 </div>
 <a id="a31efd78134dbe87cd082215e1e15f6d0"></a>
@@ -365,7 +385,8 @@ template&lt;class Item, class Interface = Item&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>An <code><a class="el" href="classopsy_1_1_embedded_const_iterator.html" title="The EmbeddedList constant iterator, used to iterator over list items in constant (non modifiable) con...">EmbeddedConstIterator</a></code> to the end of this <code><a class="el" href="classopsy_1_1_embedded_list.html" title="A linked list container that uses the contained item to store forward and backward pointers.">EmbeddedList</a></code> </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_embedded_list_8hpp_source.html#l00520">520</a> of file <a class="el" href="_embedded_list_8hpp_source.html">EmbeddedList.hpp</a>.</p>
-
+<div class="fragment"><div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;    {</div><div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classopsy_1_1_embedded_list.html#abc544815fd43d77410f0a91a84add18a">const_iterator</a>();</div><div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;    }</div><div class="ttc" id="classopsy_1_1_embedded_list_html_abc544815fd43d77410f0a91a84add18a"><div class="ttname"><a href="classopsy_1_1_embedded_list.html#abc544815fd43d77410f0a91a84add18a">opsy::EmbeddedList::const_iterator</a></div><div class="ttdeci">EmbeddedConstIterator&lt; Item, Interface &gt; const_iterator</div><div class="ttdoc">The constant iterator type of the container.</div><div class="ttdef"><b>Definition:</b> <a href="_embedded_list_8hpp_source.html#l00393">EmbeddedList.hpp:393</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a491d0af5c64121e421f529d002768ee6"></a>
@@ -397,7 +418,7 @@ template&lt;class Item, class Interface = Item&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_embedded_list_8hpp_source.html#l00447">447</a> of file <a class="el" href="_embedded_list_8hpp_source.html">EmbeddedList.hpp</a>.</p>
-
+<div class="fragment"><div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;    {</div><div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;        assert((m_first == <span class="keyword">nullptr</span>) ^ (m_size != 0));</div><div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;        <span class="keywordflow">return</span> m_first == <span class="keyword">nullptr</span>;</div><div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;    }</div></div><!-- fragment -->
 </div>
 </div>
 <a id="ac619f037e8085497e282406c44857001"></a>
@@ -429,7 +450,8 @@ template&lt;class Item, class Interface = Item&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>An <code><a class="el" href="classopsy_1_1_embedded_iterator.html" title="The EmbeddedList iterator, used to iterate over list items.">EmbeddedIterator</a></code> to the end of this <code><a class="el" href="classopsy_1_1_embedded_list.html" title="A linked list container that uses the contained item to store forward and backward pointers.">EmbeddedList</a></code> </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_embedded_list_8hpp_source.html#l00493">493</a> of file <a class="el" href="_embedded_list_8hpp_source.html">EmbeddedList.hpp</a>.</p>
-
+<div class="fragment"><div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;    {</div><div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classopsy_1_1_embedded_list.html#af3a25700e4a0519fdc1b368c1791a3e0">iterator</a>();</div><div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;    }</div><div class="ttc" id="classopsy_1_1_embedded_list_html_af3a25700e4a0519fdc1b368c1791a3e0"><div class="ttname"><a href="classopsy_1_1_embedded_list.html#af3a25700e4a0519fdc1b368c1791a3e0">opsy::EmbeddedList::iterator</a></div><div class="ttdeci">EmbeddedIterator&lt; Item, Interface &gt; iterator</div><div class="ttdoc">The iterator type of the container.</div><div class="ttdef"><b>Definition:</b> <a href="_embedded_list_8hpp_source.html#l00388">EmbeddedList.hpp:388</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="aa66640ee151ae7776990112b73da0c4b"></a>
@@ -461,7 +483,8 @@ template&lt;class Item, class Interface = Item&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>An <code><a class="el" href="classopsy_1_1_embedded_const_iterator.html" title="The EmbeddedList constant iterator, used to iterator over list items in constant (non modifiable) con...">EmbeddedConstIterator</a></code> to the end of this <code><a class="el" href="classopsy_1_1_embedded_list.html" title="A linked list container that uses the contained item to store forward and backward pointers.">EmbeddedList</a></code> </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_embedded_list_8hpp_source.html#l00502">502</a> of file <a class="el" href="_embedded_list_8hpp_source.html">EmbeddedList.hpp</a>.</p>
-
+<div class="fragment"><div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;    {</div><div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classopsy_1_1_embedded_list.html#abc544815fd43d77410f0a91a84add18a">const_iterator</a>();</div><div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;    }</div><div class="ttc" id="classopsy_1_1_embedded_list_html_abc544815fd43d77410f0a91a84add18a"><div class="ttname"><a href="classopsy_1_1_embedded_list.html#abc544815fd43d77410f0a91a84add18a">opsy::EmbeddedList::const_iterator</a></div><div class="ttdeci">EmbeddedConstIterator&lt; Item, Interface &gt; const_iterator</div><div class="ttdoc">The constant iterator type of the container.</div><div class="ttdef"><b>Definition:</b> <a href="_embedded_list_8hpp_source.html#l00393">EmbeddedList.hpp:393</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="acc27572b6ce8e813a93fa3c1cbd22b4c"></a>
@@ -500,7 +523,11 @@ template&lt;class Item, class Interface = Item&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>An <code><a class="el" href="classopsy_1_1_embedded_iterator.html" title="The EmbeddedList iterator, used to iterate over list items.">EmbeddedIterator</a></code> pointing to the <code>Item</code> that was just after the removed <code>Item</code> </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_embedded_list_8hpp_source.html#l00614">614</a> of file <a class="el" href="_embedded_list_8hpp_source.html">EmbeddedList.hpp</a>.</p>
-
+<div class="fragment"><div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;    {</div><div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;        <span class="keyword">auto</span> i = <a class="code" href="classopsy_1_1_embedded_list.html#af3a25700e4a0519fdc1b368c1791a3e0">iterator</a>(&amp;item);</div><div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;</div><div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="classopsy_1_1_embedded_list.html#a491d0af5c64121e421f529d002768ee6">empty</a>())</div><div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="classopsy_1_1_embedded_list.html#ac619f037e8085497e282406c44857001">end</a>();</div><div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;</div><div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;        <span class="keywordflow">if</span> (i.previous() == <span class="keyword">nullptr</span>) <span class="comment">// no previous element, first and / or only element</span></div><div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;        {</div><div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;            <span class="keywordflow">if</span> (i.next() == <span class="keyword">nullptr</span>) <span class="comment">// only element or not in the list</span></div><div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;            {</div><div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;                <span class="keywordflow">if</span> (m_first == i.ptr())</div><div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;                {</div><div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;                    m_first = <span class="keyword">nullptr</span>;</div><div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;                    m_size--;</div><div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;                }</div><div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="classopsy_1_1_embedded_list.html#ac619f037e8085497e282406c44857001">end</a>();</div><div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;            }</div><div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;            <span class="keywordflow">else</span> <span class="comment">// first but not last element in the list</span></div><div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;            {</div><div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;                m_first = i.next();</div><div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;                i.next(<span class="keyword">nullptr</span>);</div><div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;                <a class="code" href="classopsy_1_1_embedded_list.html#af3a25700e4a0519fdc1b368c1791a3e0">iterator</a>(m_first).previous(<span class="keyword">nullptr</span>);</div><div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;                m_size--;</div><div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;                <span class="keywordflow">return</span> <a class="code" href="classopsy_1_1_embedded_list.html#aba06d6c068415799cfee0890c32a60c6">begin</a>();</div><div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;            }</div><div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;        }</div><div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;        <span class="keywordflow">else</span> <span class="comment">// previous is not null, assume element is &quot;somewhere&quot; in the list not in front, problem will appear later if we removed an item from another list ...</span></div><div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;        {</div><div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;            <span class="keyword">auto</span> next = i.next();</div><div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;            <a class="code" href="classopsy_1_1_embedded_list.html#af3a25700e4a0519fdc1b368c1791a3e0">iterator</a>(i.previous()).next(next); <span class="comment">// stitch first side</span></div><div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;            <span class="keywordflow">if</span> (next != <span class="keyword">nullptr</span>)</div><div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;                <a class="code" href="classopsy_1_1_embedded_list.html#af3a25700e4a0519fdc1b368c1791a3e0">iterator</a>(next).previous(i.previous()); <span class="comment">// stitch other side</span></div><div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;            i.reset();</div><div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;            m_size--;</div><div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="classopsy_1_1_embedded_list.html#af3a25700e4a0519fdc1b368c1791a3e0">iterator</a>(next);</div><div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;        }</div><div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;    }</div><div class="ttc" id="classopsy_1_1_embedded_list_html_a491d0af5c64121e421f529d002768ee6"><div class="ttname"><a href="classopsy_1_1_embedded_list.html#a491d0af5c64121e421f529d002768ee6">opsy::EmbeddedList::empty</a></div><div class="ttdeci">constexpr bool empty() const</div><div class="ttdoc">Checks if this EmbeddedList is empty.</div><div class="ttdef"><b>Definition:</b> <a href="_embedded_list_8hpp_source.html#l00447">EmbeddedList.hpp:447</a></div></div>
+<div class="ttc" id="classopsy_1_1_embedded_list_html_af3a25700e4a0519fdc1b368c1791a3e0"><div class="ttname"><a href="classopsy_1_1_embedded_list.html#af3a25700e4a0519fdc1b368c1791a3e0">opsy::EmbeddedList::iterator</a></div><div class="ttdeci">EmbeddedIterator&lt; Item, Interface &gt; iterator</div><div class="ttdoc">The iterator type of the container.</div><div class="ttdef"><b>Definition:</b> <a href="_embedded_list_8hpp_source.html#l00388">EmbeddedList.hpp:388</a></div></div>
+<div class="ttc" id="classopsy_1_1_embedded_list_html_ac619f037e8085497e282406c44857001"><div class="ttname"><a href="classopsy_1_1_embedded_list.html#ac619f037e8085497e282406c44857001">opsy::EmbeddedList::end</a></div><div class="ttdeci">constexpr iterator end()</div><div class="ttdoc">Gets an EmbeddedIterator to the end of this EmbeddedList.</div><div class="ttdef"><b>Definition:</b> <a href="_embedded_list_8hpp_source.html#l00493">EmbeddedList.hpp:493</a></div></div>
+<div class="ttc" id="classopsy_1_1_embedded_list_html_aba06d6c068415799cfee0890c32a60c6"><div class="ttname"><a href="classopsy_1_1_embedded_list.html#aba06d6c068415799cfee0890c32a60c6">opsy::EmbeddedList::begin</a></div><div class="ttdeci">constexpr iterator begin()</div><div class="ttdoc">Gets an EmbeddedIterator to the beginning of this EmbeddedList.</div><div class="ttdef"><b>Definition:</b> <a href="_embedded_list_8hpp_source.html#l00475">EmbeddedList.hpp:475</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="aab9723302b49ad9362922036dfe3184b"></a>
@@ -532,7 +559,8 @@ template&lt;class Item, class Interface = Item&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>The first <code>Item</code> in the <code><a class="el" href="classopsy_1_1_embedded_list.html" title="A linked list container that uses the contained item to store forward and backward pointers.">EmbeddedList</a></code> </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_embedded_list_8hpp_source.html#l00603">603</a> of file <a class="el" href="_embedded_list_8hpp_source.html">EmbeddedList.hpp</a>.</p>
-
+<div class="fragment"><div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;    {</div><div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;        assert(!<a class="code" href="classopsy_1_1_embedded_list.html#a491d0af5c64121e421f529d002768ee6">empty</a>());</div><div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;        <span class="keywordflow">return</span> *m_first;</div><div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;    }</div><div class="ttc" id="classopsy_1_1_embedded_list_html_a491d0af5c64121e421f529d002768ee6"><div class="ttname"><a href="classopsy_1_1_embedded_list.html#a491d0af5c64121e421f529d002768ee6">opsy::EmbeddedList::empty</a></div><div class="ttdeci">constexpr bool empty() const</div><div class="ttdoc">Checks if this EmbeddedList is empty.</div><div class="ttdef"><b>Definition:</b> <a href="_embedded_list_8hpp_source.html#l00447">EmbeddedList.hpp:447</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="aa8e10bcb25c97f27eaad5b4956030cf2"></a>
@@ -582,7 +610,10 @@ template&lt;class Item, class Interface = Item&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>An <code><a class="el" href="classopsy_1_1_embedded_iterator.html" title="The EmbeddedList iterator, used to iterate over list items.">EmbeddedIterator</a></code> pointing to the <code>Item</code> inserted </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_embedded_list_8hpp_source.html#l00659">659</a> of file <a class="el" href="_embedded_list_8hpp_source.html">EmbeddedList.hpp</a>.</p>
-
+<div class="fragment"><div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;    {</div><div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;        assert(<a class="code" href="classopsy_1_1_embedded_list.html#af3a25700e4a0519fdc1b368c1791a3e0">iterator</a>(&amp;item).is_free());</div><div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;</div><div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;        m_size++;</div><div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="classopsy_1_1_embedded_list.html#a491d0af5c64121e421f529d002768ee6">empty</a>() || previous.ptr() == <span class="keyword">nullptr</span>) <span class="comment">// list is empty or previous is null (before the list)</span></div><div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;        {</div><div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;            <a class="code" href="classopsy_1_1_embedded_list.html#adc36ea925ceb9c2ce71f273492a7b79b">push_front</a>(item);</div><div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;            <span class="keywordflow">return</span> &amp;item;</div><div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;        }</div><div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;</div><div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;        <span class="keyword">auto</span> i = <a class="code" href="classopsy_1_1_embedded_list.html#af3a25700e4a0519fdc1b368c1791a3e0">iterator</a>(&amp;item);</div><div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;</div><div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;        i.next(previous.next()); <span class="comment">// prepare insertion</span></div><div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;        i.previous(previous.ptr());</div><div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;</div><div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;        previous.next(i.ptr()); <span class="comment">// and stitch both sides</span></div><div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;        <span class="keywordflow">if</span> (previous.next() != <span class="keyword">nullptr</span>)</div><div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;            <a class="code" href="classopsy_1_1_embedded_list.html#af3a25700e4a0519fdc1b368c1791a3e0">iterator</a>(previous.next()).previous(i.ptr());</div><div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;</div><div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classopsy_1_1_embedded_list.html#af3a25700e4a0519fdc1b368c1791a3e0">iterator</a>(&amp;item);</div><div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;    }</div><div class="ttc" id="classopsy_1_1_embedded_list_html_a491d0af5c64121e421f529d002768ee6"><div class="ttname"><a href="classopsy_1_1_embedded_list.html#a491d0af5c64121e421f529d002768ee6">opsy::EmbeddedList::empty</a></div><div class="ttdeci">constexpr bool empty() const</div><div class="ttdoc">Checks if this EmbeddedList is empty.</div><div class="ttdef"><b>Definition:</b> <a href="_embedded_list_8hpp_source.html#l00447">EmbeddedList.hpp:447</a></div></div>
+<div class="ttc" id="classopsy_1_1_embedded_list_html_af3a25700e4a0519fdc1b368c1791a3e0"><div class="ttname"><a href="classopsy_1_1_embedded_list.html#af3a25700e4a0519fdc1b368c1791a3e0">opsy::EmbeddedList::iterator</a></div><div class="ttdeci">EmbeddedIterator&lt; Item, Interface &gt; iterator</div><div class="ttdoc">The iterator type of the container.</div><div class="ttdef"><b>Definition:</b> <a href="_embedded_list_8hpp_source.html#l00388">EmbeddedList.hpp:388</a></div></div>
+<div class="ttc" id="classopsy_1_1_embedded_list_html_adc36ea925ceb9c2ce71f273492a7b79b"><div class="ttname"><a href="classopsy_1_1_embedded_list.html#adc36ea925ceb9c2ce71f273492a7b79b">opsy::EmbeddedList::push_front</a></div><div class="ttdeci">void push_front(Item &amp;item)</div><div class="ttdoc">Add an Item to the beginning of the EmbeddedList.</div><div class="ttdef"><b>Definition:</b> <a href="_embedded_list_8hpp_source.html#l00567">EmbeddedList.hpp:567</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ad6d998c4a4c9d21cc96fbcb3563c5460"></a>
@@ -632,7 +663,13 @@ template&lt;class Item, class Interface = Item&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>An <code><a class="el" href="classopsy_1_1_embedded_iterator.html" title="The EmbeddedList iterator, used to iterate over list items.">EmbeddedIterator</a></code> pointing to the <code>Item</code> inserted </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_embedded_list_8hpp_source.html#l00689">689</a> of file <a class="el" href="_embedded_list_8hpp_source.html">EmbeddedList.hpp</a>.</p>
-
+<div class="fragment"><div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;    {</div><div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="classopsy_1_1_embedded_list.html#a491d0af5c64121e421f529d002768ee6">empty</a>() || predicate(item, *m_first))</div><div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;        {</div><div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;            <a class="code" href="classopsy_1_1_embedded_list.html#adc36ea925ceb9c2ce71f273492a7b79b">push_front</a>(item);</div><div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="classopsy_1_1_embedded_list.html#aba06d6c068415799cfee0890c32a60c6">begin</a>();</div><div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;        }</div><div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;        <span class="keywordflow">else</span></div><div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;        {</div><div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;            <a class="code" href="classopsy_1_1_embedded_list.html#af3a25700e4a0519fdc1b368c1791a3e0">iterator</a> previous = <a class="code" href="classopsy_1_1_embedded_list.html#aba06d6c068415799cfee0890c32a60c6">begin</a>();</div><div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;            <a class="code" href="classopsy_1_1_embedded_list.html#af3a25700e4a0519fdc1b368c1791a3e0">iterator</a> current = previous.next();</div><div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;</div><div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;            <span class="keywordflow">while</span> ((current != <a class="code" href="classopsy_1_1_embedded_list.html#ac619f037e8085497e282406c44857001">end</a>()) &amp;&amp; (predicate(item, *current) == <span class="keyword">false</span>))</div><div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;            {</div><div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;                previous = current;</div><div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;                ++current;</div><div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;            }</div><div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;</div><div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="classopsy_1_1_embedded_list.html#aa8e10bcb25c97f27eaad5b4956030cf2">insert</a>(previous, item);</div><div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;        }</div><div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;</div><div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;    }</div><div class="ttc" id="classopsy_1_1_embedded_list_html_a491d0af5c64121e421f529d002768ee6"><div class="ttname"><a href="classopsy_1_1_embedded_list.html#a491d0af5c64121e421f529d002768ee6">opsy::EmbeddedList::empty</a></div><div class="ttdeci">constexpr bool empty() const</div><div class="ttdoc">Checks if this EmbeddedList is empty.</div><div class="ttdef"><b>Definition:</b> <a href="_embedded_list_8hpp_source.html#l00447">EmbeddedList.hpp:447</a></div></div>
+<div class="ttc" id="classopsy_1_1_embedded_list_html_aa8e10bcb25c97f27eaad5b4956030cf2"><div class="ttname"><a href="classopsy_1_1_embedded_list.html#aa8e10bcb25c97f27eaad5b4956030cf2">opsy::EmbeddedList::insert</a></div><div class="ttdeci">iterator insert(iterator previous, Item &amp;item)</div><div class="ttdoc">Inserts an Item in the EmbeddedList.</div><div class="ttdef"><b>Definition:</b> <a href="_embedded_list_8hpp_source.html#l00659">EmbeddedList.hpp:659</a></div></div>
+<div class="ttc" id="classopsy_1_1_embedded_list_html_af3a25700e4a0519fdc1b368c1791a3e0"><div class="ttname"><a href="classopsy_1_1_embedded_list.html#af3a25700e4a0519fdc1b368c1791a3e0">opsy::EmbeddedList::iterator</a></div><div class="ttdeci">EmbeddedIterator&lt; Item, Interface &gt; iterator</div><div class="ttdoc">The iterator type of the container.</div><div class="ttdef"><b>Definition:</b> <a href="_embedded_list_8hpp_source.html#l00388">EmbeddedList.hpp:388</a></div></div>
+<div class="ttc" id="classopsy_1_1_embedded_list_html_ac619f037e8085497e282406c44857001"><div class="ttname"><a href="classopsy_1_1_embedded_list.html#ac619f037e8085497e282406c44857001">opsy::EmbeddedList::end</a></div><div class="ttdeci">constexpr iterator end()</div><div class="ttdoc">Gets an EmbeddedIterator to the end of this EmbeddedList.</div><div class="ttdef"><b>Definition:</b> <a href="_embedded_list_8hpp_source.html#l00493">EmbeddedList.hpp:493</a></div></div>
+<div class="ttc" id="classopsy_1_1_embedded_list_html_aba06d6c068415799cfee0890c32a60c6"><div class="ttname"><a href="classopsy_1_1_embedded_list.html#aba06d6c068415799cfee0890c32a60c6">opsy::EmbeddedList::begin</a></div><div class="ttdeci">constexpr iterator begin()</div><div class="ttdoc">Gets an EmbeddedIterator to the beginning of this EmbeddedList.</div><div class="ttdef"><b>Definition:</b> <a href="_embedded_list_8hpp_source.html#l00475">EmbeddedList.hpp:475</a></div></div>
+<div class="ttc" id="classopsy_1_1_embedded_list_html_adc36ea925ceb9c2ce71f273492a7b79b"><div class="ttname"><a href="classopsy_1_1_embedded_list.html#adc36ea925ceb9c2ce71f273492a7b79b">opsy::EmbeddedList::push_front</a></div><div class="ttdeci">void push_front(Item &amp;item)</div><div class="ttdoc">Add an Item to the beginning of the EmbeddedList.</div><div class="ttdef"><b>Definition:</b> <a href="_embedded_list_8hpp_source.html#l00567">EmbeddedList.hpp:567</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="acdb8ac0d34f3df9d68307e3cb076e7f4"></a>
@@ -664,7 +701,7 @@ template&lt;class Item, class Interface = Item&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>The max <code>size</code> this list can hold </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_embedded_list_8hpp_source.html#l00549">549</a> of file <a class="el" href="_embedded_list_8hpp_source.html">EmbeddedList.hpp</a>.</p>
-
+<div class="fragment"><div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;    {</div><div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;        <span class="keywordflow">return</span> std::numeric_limits&lt;difference_type&gt;::max();</div><div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;    }</div></div><!-- fragment -->
 </div>
 </div>
 <a id="a93ed4e014715e35f7c5c8f13f33dbb23"></a>
@@ -703,7 +740,7 @@ template&lt;class Item, class Interface = Item&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd><code>false</code> if the two <code><a class="el" href="classopsy_1_1_embedded_list.html" title="A linked list container that uses the contained item to store forward and backward pointers.">EmbeddedList</a></code> are equal, <code>true</code> otherwise </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_embedded_list_8hpp_source.html#l00540">540</a> of file <a class="el" href="_embedded_list_8hpp_source.html">EmbeddedList.hpp</a>.</p>
-
+<div class="fragment"><div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;    {</div><div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;        <span class="keywordflow">return</span> m_first == <span class="keyword">nullptr</span> || m_first != other.m_first;</div><div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;    }</div></div><!-- fragment -->
 </div>
 </div>
 <a id="a3e9d9d94831cf3eabd9385515a648850"></a>
@@ -742,7 +779,7 @@ template&lt;class Item, class Interface = Item&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>This <code><a class="el" href="classopsy_1_1_embedded_list.html" title="A linked list container that uses the contained item to store forward and backward pointers.">EmbeddedList</a></code> </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_embedded_list_8hpp_source.html#l00435">435</a> of file <a class="el" href="_embedded_list_8hpp_source.html">EmbeddedList.hpp</a>.</p>
-
+<div class="fragment"><div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;    {</div><div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;        m_first = other.m_first;</div><div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;        m_size = other.m_size;</div><div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;        other.m_first = <span class="keyword">nullptr</span>;</div><div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;        other.m_size = 0;</div><div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;    }</div></div><!-- fragment -->
 </div>
 </div>
 <a id="ad7ef15bfc588188b98d7e0173946ff42"></a>
@@ -781,7 +818,7 @@ template&lt;class Item, class Interface = Item&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if the two <code><a class="el" href="classopsy_1_1_embedded_list.html" title="A linked list container that uses the contained item to store forward and backward pointers.">EmbeddedList</a></code> are equal, <code>false</code> otherwise </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_embedded_list_8hpp_source.html#l00530">530</a> of file <a class="el" href="_embedded_list_8hpp_source.html">EmbeddedList.hpp</a>.</p>
-
+<div class="fragment"><div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;    {</div><div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">this</span> == &amp;other;</div><div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;    }</div></div><!-- fragment -->
 </div>
 </div>
 <a id="adc36ea925ceb9c2ce71f273492a7b79b"></a>
@@ -819,7 +856,10 @@ template&lt;class Item, class Interface = Item&gt; </div>
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="_embedded_list_8hpp_source.html#l00567">567</a> of file <a class="el" href="_embedded_list_8hpp_source.html">EmbeddedList.hpp</a>.</p>
-
+<div class="fragment"><div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;    {</div><div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;        assert(<a class="code" href="classopsy_1_1_embedded_list.html#af3a25700e4a0519fdc1b368c1791a3e0">iterator</a>(&amp;item).is_free());</div><div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;</div><div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;        <a class="code" href="classopsy_1_1_embedded_list.html#af3a25700e4a0519fdc1b368c1791a3e0">iterator</a>(&amp;item).next(m_first);</div><div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;</div><div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;        <span class="keywordflow">if</span> (!<a class="code" href="classopsy_1_1_embedded_list.html#a491d0af5c64121e421f529d002768ee6">empty</a>())</div><div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;            <a class="code" href="classopsy_1_1_embedded_list.html#aba06d6c068415799cfee0890c32a60c6">begin</a>().previous(&amp;item);</div><div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;</div><div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;        m_first = &amp;item;</div><div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;        m_size++;</div><div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;    }</div><div class="ttc" id="classopsy_1_1_embedded_list_html_a491d0af5c64121e421f529d002768ee6"><div class="ttname"><a href="classopsy_1_1_embedded_list.html#a491d0af5c64121e421f529d002768ee6">opsy::EmbeddedList::empty</a></div><div class="ttdeci">constexpr bool empty() const</div><div class="ttdoc">Checks if this EmbeddedList is empty.</div><div class="ttdef"><b>Definition:</b> <a href="_embedded_list_8hpp_source.html#l00447">EmbeddedList.hpp:447</a></div></div>
+<div class="ttc" id="classopsy_1_1_embedded_list_html_af3a25700e4a0519fdc1b368c1791a3e0"><div class="ttname"><a href="classopsy_1_1_embedded_list.html#af3a25700e4a0519fdc1b368c1791a3e0">opsy::EmbeddedList::iterator</a></div><div class="ttdeci">EmbeddedIterator&lt; Item, Interface &gt; iterator</div><div class="ttdoc">The iterator type of the container.</div><div class="ttdef"><b>Definition:</b> <a href="_embedded_list_8hpp_source.html#l00388">EmbeddedList.hpp:388</a></div></div>
+<div class="ttc" id="classopsy_1_1_embedded_list_html_aba06d6c068415799cfee0890c32a60c6"><div class="ttname"><a href="classopsy_1_1_embedded_list.html#aba06d6c068415799cfee0890c32a60c6">opsy::EmbeddedList::begin</a></div><div class="ttdeci">constexpr iterator begin()</div><div class="ttdoc">Gets an EmbeddedIterator to the beginning of this EmbeddedList.</div><div class="ttdef"><b>Definition:</b> <a href="_embedded_list_8hpp_source.html#l00475">EmbeddedList.hpp:475</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a17eccd06a4f478feb82c384d01e83058"></a>
@@ -851,18 +891,22 @@ template&lt;class Item, class Interface = Item&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>The current size of this list (number of <code>Item</code>) </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="_embedded_list_8hpp_source.html#l00558">558</a> of file <a class="el" href="_embedded_list_8hpp_source.html">EmbeddedList.hpp</a>.</p>
-
+<div class="fragment"><div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;    {</div><div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;        <span class="keywordflow">return</span> m_size;</div><div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;    }</div></div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>src/libs/opsy/<a class="el" href="_embedded_list_8hpp_source.html">EmbeddedList.hpp</a></li>
+<li>OpSy/<a class="el" href="_embedded_list_8hpp_source.html">EmbeddedList.hpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.15
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>opsy</b></li><li class="navelem"><a class="el" href="classopsy_1_1_embedded_list.html">EmbeddedList</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -47,6 +55,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('classopsy_1_1_isr_priority.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,58 +86,61 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><b>opsy</b></li><li class="navelem"><a class="el" href="classopsy_1_1_isr_priority.html">IsrPriority</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="classopsy_1_1_isr_priority-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">opsy::IsrPriority Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>An interrupt service (or <code><a class="el" href="classopsy_1_1_mutex.html" title="A mutual exclusive lock. It is used to protect shared data from being simultaneously accessed by mult...">Mutex</a></code>) priority.  
+<p>An interrupt service (or <code>Mutex</code>) priority.  
  <a href="classopsy_1_1_isr_priority.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="_cortex_m_8hpp_source.html">CortexM.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_isr_priority_8hpp_source.html">IsrPriority.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a677d64bc2687a60ce883dd28802db410"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classopsy_1_1_isr_priority.html#a677d64bc2687a60ce883dd28802db410">IsrPriority</a> (uint8_t <a class="el" href="classopsy_1_1_isr_priority.html#a52b680b18c8081f309e45884f250c572">value</a>=0xFF)</td></tr>
 <tr class="memdesc:a677d64bc2687a60ce883dd28802db410"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an <code><a class="el" href="classopsy_1_1_isr_priority.html" title="An interrupt service (or Mutex) priority.">IsrPriority</a></code> with a raw value.  <a href="#a677d64bc2687a60ce883dd28802db410">More...</a><br /></td></tr>
 <tr class="separator:a677d64bc2687a60ce883dd28802db410"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85055d6a980e28f2e82c01359e26dccd"><td class="memTemplParams" colspan="2">template&lt;std::size_t PreemptBits = kPreemptionBits&gt; </td></tr>
+<tr class="memitem:a85055d6a980e28f2e82c01359e26dccd"><td class="memTemplParams" colspan="2">template&lt;std::size_t PreemptBits&gt; </td></tr>
 <tr class="memitem:a85055d6a980e28f2e82c01359e26dccd"><td class="memTemplItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classopsy_1_1_isr_priority.html#a85055d6a980e28f2e82c01359e26dccd">preempt</a> () const</td></tr>
 <tr class="memdesc:a85055d6a980e28f2e82c01359e26dccd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Preemption level of the <code><a class="el" href="classopsy_1_1_isr_priority.html" title="An interrupt service (or Mutex) priority.">IsrPriority</a></code>.  <a href="#a85055d6a980e28f2e82c01359e26dccd">More...</a><br /></td></tr>
 <tr class="separator:a85055d6a980e28f2e82c01359e26dccd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add61d27b11a1116c1d0edc0ceadc30c3"><td class="memTemplParams" colspan="2">template&lt;std::size_t PreemptBits = kPreemptionBits&gt; </td></tr>
+<tr class="memitem:add61d27b11a1116c1d0edc0ceadc30c3"><td class="memTemplParams" colspan="2">template&lt;std::size_t PreemptBits&gt; </td></tr>
 <tr class="memitem:add61d27b11a1116c1d0edc0ceadc30c3"><td class="memTemplItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classopsy_1_1_isr_priority.html#add61d27b11a1116c1d0edc0ceadc30c3">sub</a> () const</td></tr>
 <tr class="memdesc:add61d27b11a1116c1d0edc0ceadc30c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sub-priority of the <code><a class="el" href="classopsy_1_1_isr_priority.html" title="An interrupt service (or Mutex) priority.">IsrPriority</a></code>.  <a href="#add61d27b11a1116c1d0edc0ceadc30c3">More...</a><br /></td></tr>
 <tr class="separator:add61d27b11a1116c1d0edc0ceadc30c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52b680b18c8081f309e45884f250c572"><td class="memItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classopsy_1_1_isr_priority.html#a52b680b18c8081f309e45884f250c572">value</a> () const</td></tr>
 <tr class="memdesc:a52b680b18c8081f309e45884f250c572"><td class="mdescLeft">&#160;</td><td class="mdescRight">Raw value of the <code><a class="el" href="classopsy_1_1_isr_priority.html" title="An interrupt service (or Mutex) priority.">IsrPriority</a></code>.  <a href="#a52b680b18c8081f309e45884f250c572">More...</a><br /></td></tr>
 <tr class="separator:a52b680b18c8081f309e45884f250c572"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9cba965427e03b8926d0ee6f46b03512"><td class="memTemplParams" colspan="2">template&lt;std::size_t PriorityBits = kPriorityBits&gt; </td></tr>
+<tr class="memitem:a9cba965427e03b8926d0ee6f46b03512"><td class="memTemplParams" colspan="2">template&lt;std::size_t PriorityBits&gt; </td></tr>
 <tr class="memitem:a9cba965427e03b8926d0ee6f46b03512"><td class="memTemplItemLeft" align="right" valign="top">constexpr uint8_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classopsy_1_1_isr_priority.html#a9cba965427e03b8926d0ee6f46b03512">maskedValue</a> () const</td></tr>
 <tr class="memdesc:a9cba965427e03b8926d0ee6f46b03512"><td class="mdescLeft">&#160;</td><td class="mdescRight">Masked raw value of the <code><a class="el" href="classopsy_1_1_isr_priority.html" title="An interrupt service (or Mutex) priority.">IsrPriority</a></code>. It contains only the bits actually implemented in the Cortex-M.  <a href="#a9cba965427e03b8926d0ee6f46b03512">More...</a><br /></td></tr>
 <tr class="separator:a9cba965427e03b8926d0ee6f46b03512"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:acfc0254ccf829c0bbc0095695f7a335e"><td class="memTemplParams" colspan="2">template&lt;std::size_t PreemptBits = kPreemptionBits&gt; </td></tr>
+<tr class="memitem:acfc0254ccf829c0bbc0095695f7a335e"><td class="memTemplParams" colspan="2">template&lt;std::size_t PreemptBits&gt; </td></tr>
 <tr class="memitem:acfc0254ccf829c0bbc0095695f7a335e"><td class="memTemplItemLeft" align="right" valign="top">static constexpr <a class="el" href="classopsy_1_1_isr_priority.html">IsrPriority</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classopsy_1_1_isr_priority.html#acfc0254ccf829c0bbc0095695f7a335e">FromPreemptSub</a> (uint8_t <a class="el" href="classopsy_1_1_isr_priority.html#a85055d6a980e28f2e82c01359e26dccd">preempt</a>, uint8_t <a class="el" href="classopsy_1_1_isr_priority.html#add61d27b11a1116c1d0edc0ceadc30c3">sub</a>)</td></tr>
 <tr class="memdesc:acfc0254ccf829c0bbc0095695f7a335e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <code><a class="el" href="classopsy_1_1_isr_priority.html" title="An interrupt service (or Mutex) priority.">IsrPriority</a></code> from preemption priority and sub-priority based on number of preemption bits.  <a href="#acfc0254ccf829c0bbc0095695f7a335e">More...</a><br /></td></tr>
 <tr class="separator:acfc0254ccf829c0bbc0095695f7a335e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a18cc2a77d6544f7c58fc759b9e350bde"><td class="memItemLeft" align="right" valign="top"><a id="a18cc2a77d6544f7c58fc759b9e350bde"></a>
+static constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classopsy_1_1_isr_priority.html#a18cc2a77d6544f7c58fc759b9e350bde">kMaxPreemptionBits</a> = 8</td></tr>
+<tr class="memdesc:a18cc2a77d6544f7c58fc759b9e350bde"><td class="mdescLeft">&#160;</td><td class="mdescRight">The maximum number of preemption priority bits. <br /></td></tr>
+<tr class="separator:a18cc2a77d6544f7c58fc759b9e350bde"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>An interrupt service (or <code><a class="el" href="classopsy_1_1_mutex.html" title="A mutual exclusive lock. It is used to protect shared data from being simultaneously accessed by mult...">Mutex</a></code>) priority. </p>
+<div class="textblock"><p>An interrupt service (or <code>Mutex</code>) priority. </p>
 
-<p class="definition">Definition at line <a class="el" href="_cortex_m_8hpp_source.html#l00099">99</a> of file <a class="el" href="_cortex_m_8hpp_source.html">CortexM.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_isr_priority_8hpp_source.html#l00050">50</a> of file <a class="el" href="_isr_priority_8hpp_source.html">IsrPriority.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a677d64bc2687a60ce883dd28802db410"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a677d64bc2687a60ce883dd28802db410">&#9670;&nbsp;</a></span>IsrPriority()</h2>
@@ -147,8 +175,9 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section remark"><dt>Remarks</dt><dd>The default value is <code>0xFF</code> which is the lowest priority available in the Cortex-M </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_cortex_m_8hpp_source.html#l00120">120</a> of file <a class="el" href="_cortex_m_8hpp_source.html">CortexM.hpp</a>.</p>
-
+<p class="definition">Definition at line <a class="el" href="_isr_priority_8hpp_source.html#l00076">76</a> of file <a class="el" href="_isr_priority_8hpp_source.html">IsrPriority.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                                                :</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            m_value(<a class="code" href="classopsy_1_1_isr_priority.html#a52b680b18c8081f309e45884f250c572">value</a>)</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    {</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    }</div><div class="ttc" id="classopsy_1_1_isr_priority_html_a52b680b18c8081f309e45884f250c572"><div class="ttname"><a href="classopsy_1_1_isr_priority.html#a52b680b18c8081f309e45884f250c572">opsy::IsrPriority::value</a></div><div class="ttdeci">constexpr uint8_t value() const</div><div class="ttdoc">Raw value of the IsrPriority.</div><div class="ttdef"><b>Definition:</b> <a href="_isr_priority_8hpp_source.html#l00109">IsrPriority.hpp:109</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -158,7 +187,7 @@ Static Public Member Functions</h2></td></tr>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;std::size_t PreemptBits = kPreemptionBits&gt; </div>
+template&lt;std::size_t PreemptBits&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -198,8 +227,11 @@ template&lt;std::size_t PreemptBits = kPreemptionBits&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The <code><a class="el" href="classopsy_1_1_isr_priority.html" title="An interrupt service (or Mutex) priority.">IsrPriority</a></code> which has <code>preempt</code> preemption priority and <code>sub</code> sub-priority </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_cortex_m_8hpp_source.html#l00110">110</a> of file <a class="el" href="_cortex_m_8hpp_source.html">CortexM.hpp</a>.</p>
-
+<p class="definition">Definition at line <a class="el" href="_isr_priority_8hpp_source.html#l00066">66</a> of file <a class="el" href="_isr_priority_8hpp_source.html">IsrPriority.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    {</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordflow">return</span> static_cast&lt;uint8_t&gt;(((<a class="code" href="classopsy_1_1_isr_priority.html#a85055d6a980e28f2e82c01359e26dccd">preempt</a> &amp; ((1u &lt;&lt; PreemptBits) - 1u)) &lt;&lt; (<a class="code" href="classopsy_1_1_isr_priority.html#a18cc2a77d6544f7c58fc759b9e350bde">kMaxPreemptionBits</a> - PreemptBits)) | (<a class="code" href="classopsy_1_1_isr_priority.html#add61d27b11a1116c1d0edc0ceadc30c3">sub</a> &amp; (((1u &lt;&lt; (<a class="code" href="classopsy_1_1_isr_priority.html#a18cc2a77d6544f7c58fc759b9e350bde">kMaxPreemptionBits</a> - PreemptBits)) - 1u))));</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    }</div><div class="ttc" id="classopsy_1_1_isr_priority_html_a18cc2a77d6544f7c58fc759b9e350bde"><div class="ttname"><a href="classopsy_1_1_isr_priority.html#a18cc2a77d6544f7c58fc759b9e350bde">opsy::IsrPriority::kMaxPreemptionBits</a></div><div class="ttdeci">static constexpr uint8_t kMaxPreemptionBits</div><div class="ttdoc">The maximum number of preemption priority bits.</div><div class="ttdef"><b>Definition:</b> <a href="_isr_priority_8hpp_source.html#l00057">IsrPriority.hpp:57</a></div></div>
+<div class="ttc" id="classopsy_1_1_isr_priority_html_add61d27b11a1116c1d0edc0ceadc30c3"><div class="ttname"><a href="classopsy_1_1_isr_priority.html#add61d27b11a1116c1d0edc0ceadc30c3">opsy::IsrPriority::sub</a></div><div class="ttdeci">constexpr uint8_t sub() const</div><div class="ttdoc">Sub-priority of the IsrPriority.</div><div class="ttdef"><b>Definition:</b> <a href="_isr_priority_8hpp_source.html#l00099">IsrPriority.hpp:99</a></div></div>
+<div class="ttc" id="classopsy_1_1_isr_priority_html_a85055d6a980e28f2e82c01359e26dccd"><div class="ttname"><a href="classopsy_1_1_isr_priority.html#a85055d6a980e28f2e82c01359e26dccd">opsy::IsrPriority::preempt</a></div><div class="ttdeci">constexpr uint8_t preempt() const</div><div class="ttdoc">Preemption level of the IsrPriority.</div><div class="ttdef"><b>Definition:</b> <a href="_isr_priority_8hpp_source.html#l00088">IsrPriority.hpp:88</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a9cba965427e03b8926d0ee6f46b03512"></a>
@@ -208,7 +240,7 @@ template&lt;std::size_t PreemptBits = kPreemptionBits&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;std::size_t PriorityBits = kPriorityBits&gt; </div>
+template&lt;std::size_t PriorityBits&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -231,8 +263,10 @@ template&lt;std::size_t PriorityBits = kPriorityBits&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>The masked raw value. </dd></dl>
 <dl class="section remark"><dt>Remarks</dt><dd>Like all <code><a class="el" href="classopsy_1_1_isr_priority.html" title="An interrupt service (or Mutex) priority.">IsrPriority</a></code> a lower value means a higher priority. <code>0</code> is the system highest priority, when <code>0xFF</code> is the lowest priority. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_cortex_m_8hpp_source.html#l00164">164</a> of file <a class="el" href="_cortex_m_8hpp_source.html">CortexM.hpp</a>.</p>
-
+<p class="definition">Definition at line <a class="el" href="_isr_priority_8hpp_source.html#l00120">120</a> of file <a class="el" href="_isr_priority_8hpp_source.html">IsrPriority.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    {</div><div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        constexpr uint8_t mask = static_cast&lt;uint8_t&gt;(((1 &lt;&lt; PriorityBits) - 1) &lt;&lt; (<a class="code" href="classopsy_1_1_isr_priority.html#a18cc2a77d6544f7c58fc759b9e350bde">kMaxPreemptionBits</a> - PriorityBits));</div><div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classopsy_1_1_isr_priority.html#a52b680b18c8081f309e45884f250c572">value</a>() &amp; mask;</div><div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    }</div><div class="ttc" id="classopsy_1_1_isr_priority_html_a18cc2a77d6544f7c58fc759b9e350bde"><div class="ttname"><a href="classopsy_1_1_isr_priority.html#a18cc2a77d6544f7c58fc759b9e350bde">opsy::IsrPriority::kMaxPreemptionBits</a></div><div class="ttdeci">static constexpr uint8_t kMaxPreemptionBits</div><div class="ttdoc">The maximum number of preemption priority bits.</div><div class="ttdef"><b>Definition:</b> <a href="_isr_priority_8hpp_source.html#l00057">IsrPriority.hpp:57</a></div></div>
+<div class="ttc" id="classopsy_1_1_isr_priority_html_a52b680b18c8081f309e45884f250c572"><div class="ttname"><a href="classopsy_1_1_isr_priority.html#a52b680b18c8081f309e45884f250c572">opsy::IsrPriority::value</a></div><div class="ttdeci">constexpr uint8_t value() const</div><div class="ttdoc">Raw value of the IsrPriority.</div><div class="ttdef"><b>Definition:</b> <a href="_isr_priority_8hpp_source.html#l00109">IsrPriority.hpp:109</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a85055d6a980e28f2e82c01359e26dccd"></a>
@@ -241,7 +275,7 @@ template&lt;std::size_t PriorityBits = kPriorityBits&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;std::size_t PreemptBits = kPreemptionBits&gt; </div>
+template&lt;std::size_t PreemptBits&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -264,8 +298,9 @@ template&lt;std::size_t PreemptBits = kPreemptionBits&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>The preemption level </dd></dl>
 <dl class="section remark"><dt>Remarks</dt><dd>Like all <code><a class="el" href="classopsy_1_1_isr_priority.html" title="An interrupt service (or Mutex) priority.">IsrPriority</a></code> a lower value means a higher priority. <code>0</code> is the system highest priority, when <code>0xFF</code> is the lowest priority. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_cortex_m_8hpp_source.html#l00132">132</a> of file <a class="el" href="_cortex_m_8hpp_source.html">CortexM.hpp</a>.</p>
-
+<p class="definition">Definition at line <a class="el" href="_isr_priority_8hpp_source.html#l00088">88</a> of file <a class="el" href="_isr_priority_8hpp_source.html">IsrPriority.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    {</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordflow">return</span> m_value &gt;&gt; (<a class="code" href="classopsy_1_1_isr_priority.html#a18cc2a77d6544f7c58fc759b9e350bde">kMaxPreemptionBits</a> - PreemptBits);</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    }</div><div class="ttc" id="classopsy_1_1_isr_priority_html_a18cc2a77d6544f7c58fc759b9e350bde"><div class="ttname"><a href="classopsy_1_1_isr_priority.html#a18cc2a77d6544f7c58fc759b9e350bde">opsy::IsrPriority::kMaxPreemptionBits</a></div><div class="ttdeci">static constexpr uint8_t kMaxPreemptionBits</div><div class="ttdoc">The maximum number of preemption priority bits.</div><div class="ttdef"><b>Definition:</b> <a href="_isr_priority_8hpp_source.html#l00057">IsrPriority.hpp:57</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="add61d27b11a1116c1d0edc0ceadc30c3"></a>
@@ -274,7 +309,7 @@ template&lt;std::size_t PreemptBits = kPreemptionBits&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;std::size_t PreemptBits = kPreemptionBits&gt; </div>
+template&lt;std::size_t PreemptBits&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -297,8 +332,9 @@ template&lt;std::size_t PreemptBits = kPreemptionBits&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>The sub-priority </dd></dl>
 <dl class="section remark"><dt>Remarks</dt><dd>Like all <code><a class="el" href="classopsy_1_1_isr_priority.html" title="An interrupt service (or Mutex) priority.">IsrPriority</a></code> a lower value means a higher priority. <code>0</code> is the system highest priority, when <code>0xFF</code> is the lowest priority. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_cortex_m_8hpp_source.html#l00143">143</a> of file <a class="el" href="_cortex_m_8hpp_source.html">CortexM.hpp</a>.</p>
-
+<p class="definition">Definition at line <a class="el" href="_isr_priority_8hpp_source.html#l00099">99</a> of file <a class="el" href="_isr_priority_8hpp_source.html">IsrPriority.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    {</div><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keywordflow">return</span> m_value &amp; (1 &lt;&lt; ((<a class="code" href="classopsy_1_1_isr_priority.html#a18cc2a77d6544f7c58fc759b9e350bde">kMaxPreemptionBits</a> - PreemptBits)) - 1);</div><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    }</div><div class="ttc" id="classopsy_1_1_isr_priority_html_a18cc2a77d6544f7c58fc759b9e350bde"><div class="ttname"><a href="classopsy_1_1_isr_priority.html#a18cc2a77d6544f7c58fc759b9e350bde">opsy::IsrPriority::kMaxPreemptionBits</a></div><div class="ttdeci">static constexpr uint8_t kMaxPreemptionBits</div><div class="ttdoc">The maximum number of preemption priority bits.</div><div class="ttdef"><b>Definition:</b> <a href="_isr_priority_8hpp_source.html#l00057">IsrPriority.hpp:57</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a52b680b18c8081f309e45884f250c572"></a>
@@ -328,19 +364,23 @@ template&lt;std::size_t PreemptBits = kPreemptionBits&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>The raw value </dd></dl>
 <dl class="section remark"><dt>Remarks</dt><dd>Like all <code><a class="el" href="classopsy_1_1_isr_priority.html" title="An interrupt service (or Mutex) priority.">IsrPriority</a></code> a lower value means a higher priority. <code>0</code> is the system highest priority, when <code>0xFF</code> is the lowest priority. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_cortex_m_8hpp_source.html#l00153">153</a> of file <a class="el" href="_cortex_m_8hpp_source.html">CortexM.hpp</a>.</p>
-
+<p class="definition">Definition at line <a class="el" href="_isr_priority_8hpp_source.html#l00109">109</a> of file <a class="el" href="_isr_priority_8hpp_source.html">IsrPriority.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    {</div><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <span class="keywordflow">return</span> m_value;</div><div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    }</div></div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>src/libs/opsy/<a class="el" href="_cortex_m_8hpp_source.html">CortexM.hpp</a></li>
+<li>OpSy/<a class="el" href="_isr_priority_8hpp_source.html">IsrPriority.hpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.15
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><b>opsy</b></li><li class="navelem"><a class="el" href="classopsy_1_1_isr_priority.html">IsrPriority</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
+  </ul>
+</div>
 </body>
 </html>

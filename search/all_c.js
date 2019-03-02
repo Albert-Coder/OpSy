@@ -8,8 +8,7 @@ var searchData=
   ['minsub',['minSub',['../classopsy_1_1_cortex_m.html#a0dcca34774c691dfb00604093c583fa1',1,'opsy::CortexM']]],
   ['movevtor',['moveVtor',['../classopsy_1_1_cortex_m.html#acd46d24efeb3f9f3139cbf37fa4edb37',1,'opsy::CortexM']]],
   ['mspatreset',['mspAtReset',['../classopsy_1_1_cortex_m.html#a87db7a3b8f12259f7c8ecea57e314bdd',1,'opsy::CortexM']]],
-  ['mutex',['Mutex',['../classopsy_1_1_mutex.html',1,'opsy::Mutex'],['../classopsy_1_1_mutex.html#af91191d84a975666d350dcd227a33052',1,'opsy::Mutex::Mutex(std::optional&lt; IsrPriority &gt; priority=std::nullopt)'],['../classopsy_1_1_mutex.html#a818eafda0c98ff402bb84afde950408f',1,'opsy::Mutex::Mutex(Mutex &amp;&amp;from)']]],
-  ['mutex_2ehpp',['Mutex.hpp',['../_mutex_8hpp.html',1,'']]],
+  ['mutex',['Mutex',['../_config_8hpp.html#abbcaea2a25afd9cae0d81a4fb537c68e',1,'opsy']]],
   ['mutexrestoredfortask',['mutexRestoredForTask',['../classopsy_1_1_hooks.html#a543679f30ed3782fd22ed3536e2307b5',1,'opsy::Hooks']]],
   ['mutexstoredfortask',['mutexStoredForTask',['../classopsy_1_1_hooks.html#a8040c269e8dfef9a5fb8ad8e5149e9a2',1,'opsy::Hooks']]]
 ];

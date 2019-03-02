@@ -21,6 +21,8 @@ var searchData=
   ['const_5freference',['const_reference',['../classopsy_1_1_embedded_list.html#a4b59f2328d9ca4212d80423164532150',1,'opsy::EmbeddedList']]],
   ['cortexm',['CortexM',['../classopsy_1_1_cortex_m.html',1,'opsy']]],
   ['cortexm_2ehpp',['CortexM.hpp',['../_cortex_m_8hpp.html',1,'']]],
+  ['criticalsection',['CriticalSection',['../classopsy_1_1_critical_section.html',1,'opsy::CriticalSection'],['../classopsy_1_1_scheduler.html#af2eca6bbbceab1aecba26c486ea5332b',1,'opsy::Scheduler::criticalSection()'],['../classopsy_1_1_critical_section.html#a700cfdb429ae413e17855d69ee97310b',1,'opsy::CriticalSection::CriticalSection()'],['../classopsy_1_1_critical_section.html#aadb654429a0ec4c9ca2f1c2da9e23e64',1,'opsy::CriticalSection::CriticalSection(CriticalSection &amp;&amp;other)']]],
+  ['criticalsection_2ehpp',['CriticalSection.hpp',['../_critical_section_8hpp.html',1,'']]],
   ['currentpriority',['currentPriority',['../classopsy_1_1_cortex_m.html#a23a0919492f5ce5deae7f825a297ae30',1,'opsy::CortexM']]],
   ['cv_5fstatus',['cv_status',['../_condition_variable_8hpp.html#ad3ce465ffb10e354aa30c4ce93b68bee',1,'std']]]
 ];

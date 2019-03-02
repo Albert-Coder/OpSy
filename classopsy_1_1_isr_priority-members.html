@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -47,6 +55,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('classopsy_1_1_isr_priority.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,11 +86,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><b>opsy</b></li><li class="navelem"><a class="el" href="classopsy_1_1_isr_priority.html">IsrPriority</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">opsy::IsrPriority Member List</div>  </div>
@@ -76,16 +96,20 @@ $(function() {
 <table class="directory">
   <tr class="even"><td class="entry"><a class="el" href="classopsy_1_1_isr_priority.html#acfc0254ccf829c0bbc0095695f7a335e">FromPreemptSub</a>(uint8_t preempt, uint8_t sub)</td><td class="entry"><a class="el" href="classopsy_1_1_isr_priority.html">opsy::IsrPriority</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
   <tr><td class="entry"><a class="el" href="classopsy_1_1_isr_priority.html#a677d64bc2687a60ce883dd28802db410">IsrPriority</a>(uint8_t value=0xFF)</td><td class="entry"><a class="el" href="classopsy_1_1_isr_priority.html">opsy::IsrPriority</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classopsy_1_1_isr_priority.html#a9cba965427e03b8926d0ee6f46b03512">maskedValue</a>() const</td><td class="entry"><a class="el" href="classopsy_1_1_isr_priority.html">opsy::IsrPriority</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="classopsy_1_1_isr_priority.html#a85055d6a980e28f2e82c01359e26dccd">preempt</a>() const</td><td class="entry"><a class="el" href="classopsy_1_1_isr_priority.html">opsy::IsrPriority</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classopsy_1_1_isr_priority.html#add61d27b11a1116c1d0edc0ceadc30c3">sub</a>() const</td><td class="entry"><a class="el" href="classopsy_1_1_isr_priority.html">opsy::IsrPriority</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="classopsy_1_1_isr_priority.html#a52b680b18c8081f309e45884f250c572">value</a>() const</td><td class="entry"><a class="el" href="classopsy_1_1_isr_priority.html">opsy::IsrPriority</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classopsy_1_1_isr_priority.html#a18cc2a77d6544f7c58fc759b9e350bde">kMaxPreemptionBits</a></td><td class="entry"><a class="el" href="classopsy_1_1_isr_priority.html">opsy::IsrPriority</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classopsy_1_1_isr_priority.html#a9cba965427e03b8926d0ee6f46b03512">maskedValue</a>() const</td><td class="entry"><a class="el" href="classopsy_1_1_isr_priority.html">opsy::IsrPriority</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classopsy_1_1_isr_priority.html#a85055d6a980e28f2e82c01359e26dccd">preempt</a>() const</td><td class="entry"><a class="el" href="classopsy_1_1_isr_priority.html">opsy::IsrPriority</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="classopsy_1_1_isr_priority.html#add61d27b11a1116c1d0edc0ceadc30c3">sub</a>() const</td><td class="entry"><a class="el" href="classopsy_1_1_isr_priority.html">opsy::IsrPriority</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classopsy_1_1_isr_priority.html#a52b680b18c8081f309e45884f250c572">value</a>() const</td><td class="entry"><a class="el" href="classopsy_1_1_isr_priority.html">opsy::IsrPriority</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
 </table></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.15
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
+  </ul>
+</div>
 </body>
 </html>
