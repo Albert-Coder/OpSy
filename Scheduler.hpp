@@ -136,11 +136,11 @@ public:
 	static inline CriticalSection criticalSection()
 	{
 		if (s_criticalSection) // was already in critical section, iterative is OK but the new object is invalid, meaning the critical section is ended only when the first (the only valid) object is released
-			return false;
+			return CriticalSection(false);
 		else
 		{
 			Hooks::enterCriticalSection();
-			return s_criticalSection = true;
+			return CriticalSection(s_criticalSection = true);
 		}
 	}
 

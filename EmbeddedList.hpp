@@ -127,7 +127,7 @@ public:
 	 * @ Creates an iterator pointing to an @c Item
 	 * @param ptr The pointer to the @c Item
 	 */
-	constexpr EmbeddedIterator(pointer ptr = nullptr) :
+	constexpr explicit EmbeddedIterator(pointer ptr = nullptr) :
 			m_ptr(ptr)
 	{
 
@@ -139,7 +139,7 @@ public:
 	 */
 	inline self_type operator++()
 	{
-		return m_ptr = next();
+		return self_type(m_ptr = next());
 	}
 
 	/**
@@ -284,7 +284,7 @@ public:
 	 * @brief Creates a @c EmbeddedConstIterator from a pointer
 	 * @param ptr The pointer this @c EmbeddedConstIterator points to
 	 */
-	constexpr EmbeddedConstIterator(pointer ptr = nullptr) :
+	constexpr explicit EmbeddedConstIterator(pointer ptr = nullptr) :
 			m_ptr(ptr)
 	{
 
@@ -420,7 +420,7 @@ public:
 	 * @brief Move construct a @c EmbeddedList from another
 	 * @param other The other @c EmbeddedList to move data from
 	 */
-	constexpr EmbeddedList(EmbeddedList&& other) :
+	explicit EmbeddedList(EmbeddedList&& other) :
 			m_first(other.m_first), m_size(other.m_size)
 	{
 		other.m_first = nullptr;
@@ -438,6 +438,7 @@ public:
 		m_size = other.m_size;
 		other.m_first = nullptr;
 		other.m_size = 0;
+		return *this;
 	}
 
 	/**
@@ -474,7 +475,7 @@ public:
 	 */
 	constexpr inline iterator begin()
 	{
-		return m_first;
+		return iterator(m_first);
 	}
 
 	/**
@@ -574,7 +575,7 @@ public:
 			begin().previous(&item);
 
 		m_first = &item;
-		m_size++;
+		++m_size;
 	}
 
 	/**
@@ -583,13 +584,13 @@ public:
 	void pop_front()
 	{
 		assert(!empty());
-		assert(begin().previous() == nullptr);
+		assert(iterator(m_first).previous() == nullptr);
 
 		auto i = begin();
 
 		m_first = i.next();
 		i.reset();
-		m_size--;
+		--m_size;
 
 		if (!empty())
 			begin().previous(nullptr);
@@ -625,7 +626,7 @@ public:
 				if (m_first == i.ptr())
 				{
 					m_first = nullptr;
-					m_size--;
+					--m_size;
 				}
 				return end();
 			}
@@ -634,7 +635,7 @@ public:
 				m_first = i.next();
 				i.next(nullptr);
 				iterator(m_first).previous(nullptr);
-				m_size--;
+				--m_size;
 				return begin();
 			}
 		}
@@ -645,7 +646,7 @@ public:
 			if (next != nullptr)
 				iterator(next).previous(i.previous()); // stitch other side
 			i.reset();
-			m_size--;
+			--m_size;
 			return iterator(next);
 		}
 	}
@@ -660,11 +661,11 @@ public:
 	{
 		assert(iterator(&item).is_free());
 
-		m_size++;
+		--m_size;
 		if (empty() || previous.ptr() == nullptr) // list is empty or previous is null (before the list)
 		{
 			push_front(item);
-			return &item;
+			return iterator(&item);
 		}
 
 		auto i = iterator(&item);
@@ -696,7 +697,7 @@ public:
 		else
 		{
 			iterator previous = begin();
-			iterator current = previous.next();
+			iterator current = iterator(previous.next());
 
 			while ((current != end()) && (predicate(item, *current) == false))
 			{

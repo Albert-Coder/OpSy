@@ -400,7 +400,7 @@ public:
 	 * @brief Constructs a @c IdleTask to run code pointed by @p entry
 	 * @param entry The code to execute when system is idle
 	 */
-	constexpr IdleTask(const CodePointer entry) :
+	constexpr explicit IdleTask(const CodePointer entry) :
 			IdleTaskControlBlock(m_stack.data(), StackSize, entry)
 	{
 		static_assert(StackSize >= 2* (sizeof(StackFrame) + sizeof(Context)) / sizeof(uint32_t), "Stack too small");

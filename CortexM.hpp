@@ -349,7 +349,7 @@ public:
 			break;
 		default:
 			assert(false);
-			return 0;
+			return IsrPriority(0);
 		}
 	}
 
@@ -625,7 +625,7 @@ public:
 				: [output] "=&r" (result)
 				: [input] "r" (priority.value())
 				: );
-		return result;
+		return IsrPriority(static_cast<uint8_t>(result));
 	}
 
 	/**

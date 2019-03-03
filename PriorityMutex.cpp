@@ -23,7 +23,7 @@ void opsy::PriorityMutex::lock()
 				assert(CortexM::currentPriority().value().maskedValue<kPreemptionBits>() >= m_priority.value().maskedValue<kPreemptionBits>()); // in interrupt, check that current priority level is lower than what is needed to lock, because if an interrupt with higher priority participate in the lock, synchronization cannot be guaranteed
 
 			Hooks::enterPriorityLock(m_priority.value());
-			m_previousLock = CortexM::setBasepri(m_priority.value().maskedValue<kPreemptionBits>());
+			m_previousLock = CortexM::setBasepri(IsrPriority(m_priority.value().maskedValue<kPreemptionBits>()));
 			assert(m_previousLock.maskedValue<kPreemptionBits>() <= m_priority.value().maskedValue<kPreemptionBits>()); // a new mutex lock cannot LOWER the priority mutex (basepri)
 		}
 	}
@@ -75,7 +75,7 @@ uint32_t opsy::PriorityMutex::reLockFromPendSv(CriticalSection section)
 	if (m_priority.has_value())
 	{
 		assert(m_priority.value().value() != 0); // 0 is full mutex, can't be preempted by system
-		m_previousLock = 0;
+		m_previousLock = IsrPriority(0);
 	}
 
 	m_locked = true;

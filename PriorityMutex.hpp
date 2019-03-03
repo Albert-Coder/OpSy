@@ -76,7 +76,7 @@ public:
 	 * @param priority The @c IsrPriority that this @c Mutex should lock, or nothing to make a @c Task only exclusion (critical section)
 	 * @remark use @c IsrPriority with value 0 for a full lock (@c PRIMASK = 1)
 	 */
-	constexpr PriorityMutex(std::optional<IsrPriority> priority = std::nullopt) :
+	constexpr explicit PriorityMutex(std::optional<IsrPriority> priority = std::nullopt) :
 			m_priority(priority)
 	{
 	}

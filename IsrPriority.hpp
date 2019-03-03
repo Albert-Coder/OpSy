@@ -65,7 +65,7 @@ public:
 	template<std::size_t PreemptBits>
 	static constexpr IsrPriority FromPreemptSub(uint8_t preempt, uint8_t sub)
 	{
-		return static_cast<uint8_t>(((preempt & ((1u << PreemptBits) - 1u)) << (kMaxPreemptionBits - PreemptBits)) | (sub & (((1u << (kMaxPreemptionBits - PreemptBits)) - 1u))));
+		return IsrPriority(static_cast<uint8_t>(((preempt & ((1u << PreemptBits) - 1u)) << (kMaxPreemptionBits - PreemptBits)) | (sub & (((1u << (kMaxPreemptionBits - PreemptBits)) - 1u)))));
 	}
 
 	/**
@@ -73,7 +73,7 @@ public:
 	 * @param value The raw value of the priority (with no distinction between preemption and sub-priority)
 	 * @remark The default value is @c 0xFF which is the lowest priority available in the Cortex-M
 	 */
-	constexpr IsrPriority(uint8_t value = 0xFF) :
+	constexpr explicit IsrPriority(uint8_t value = 0xFF) :
 			m_value(value)
 	{
 

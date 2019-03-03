@@ -116,7 +116,7 @@ public:
 	 * Assigns @c Callback from another @c Callback by moving data
 	 * @param from The @c Callback to move from
 	 */
-	constexpr void operator=(Callback&& from)
+	constexpr Callback& operator=(Callback&& from)
 	{
 		if (m_valid == ValidDestructor)
 			delete get();
@@ -125,6 +125,7 @@ public:
 		if (m_valid != Invalid)
 			m_storage = from.m_storage;
 		from.m_valid = Invalid;
+		return *this;
 	}
 
 	/**
@@ -213,7 +214,7 @@ public:
 
 	public:
 
-		constexpr CallbackImpl(Function&& func) :
+		constexpr explicit CallbackImpl(Function&& func) :
 				m_function(std::forward<Function>(func))
 		{
 

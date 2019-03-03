@@ -86,7 +86,7 @@ public:
 	 * @brief Creates a @c ConditionVariable with the @p priority synchronization on @c notify and @c notify_all
 	 * @param priority The @c Mutex priority used for @c notify and @c notify_all
 	 */
-	constexpr ConditionVariable(std::optional<IsrPriority> priority = std::nullopt) :
+	constexpr explicit ConditionVariable(std::optional<IsrPriority> priority = std::nullopt) :
 			m_mutex(priority)
 	{
 

@@ -63,8 +63,6 @@ bool __attribute__((section(".text.opsy.doswitch"))) Scheduler::doSwitch()
 		return false;
 	}
 
-	const auto current = s_currentTask;
-
 	if (s_nextTask != nullptr)
 	{
 		assert(s_currentTask != s_nextTask);
@@ -72,6 +70,8 @@ bool __attribute__((section(".text.opsy.doswitch"))) Scheduler::doSwitch()
 		s_ready.insertWhen(TaskControlBlock::priorityIsLower, *s_nextTask);
 		s_nextTask = nullptr;
 	}
+
+	const auto current = s_currentTask;
 
 	if (s_currentTask != nullptr)
 	{

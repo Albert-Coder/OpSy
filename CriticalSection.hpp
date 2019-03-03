@@ -71,7 +71,7 @@ public:
 
 	}
 
-	void operator=(const CriticalSection&) = delete;
+	CriticalSection& operator=(const CriticalSection&) = delete;
 	CriticalSection(const CriticalSection&) = delete;
 
 	/**
@@ -79,11 +79,12 @@ public:
 	 * @param other The @c CriticalSection to move data from
 	 * @warning This @c CriticalSection should not be active before it is assigned to
 	 */
-	constexpr void operator=(CriticalSection&& other)
+	constexpr CriticalSection& operator=(CriticalSection&& other)
 	{
 		assert(!m_valid);
 		m_valid = other.m_valid;
 		other.m_valid = false;
+		return *this;
 	}
 
 	/**
@@ -103,7 +104,7 @@ public:
 
 private:
 
-	constexpr CriticalSection(bool valid) :
+	constexpr explicit CriticalSection(bool valid) :
 			m_valid(valid)
 	{
 
