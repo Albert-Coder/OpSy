@@ -1,3 +1,5 @@
+![OpSy Logo](https://eznovsas.github.io/OpSy/LOGOOPSY256.png)
+
 # OpSy
 
 OpSy is a Real Time Operating System or RTOS for Cortex-M microcontrollers.
