@@ -664,6 +664,16 @@ public:
 		return value != 0;
 	}
 
+	/**
+	 * @brief Enabled the Floating Point Unit (FPU) on devices which have the FPU coprocessor
+	 */
+	static inline void enableFpu() __attribute__((always_inline))
+	{
+		MemoryRegister<uint32_t>(ScbCpacrAddress).set(ScbCpacrEnableFpu);
+		dataBarrier();
+		instructionBarrier();
+	}
+
 private:
 
 	static constexpr const uint32_t ScsAddress = 0xE000E000;
@@ -677,6 +687,7 @@ private:
 	static constexpr uint32_t ScbShpAddress = ScbAddress + 0x014;
 	static constexpr uint32_t AircrAddress = ScbAddress + 0x0C;
 	static constexpr uint32_t IcsrAddress = ScbAddress + 0x04;
+	static constexpr uint32_t ScbCpacrAddress = ScbAddress + 0x88;
 
 	static constexpr uint32_t SystickCtrlAddress = SystickAddress;
 	static constexpr uint32_t SystickLoadAddress = SystickAddress + 0x04;
@@ -707,6 +718,8 @@ private:
 	static constexpr std::size_t IcsrPendSvClrPos = 27;
 	static constexpr uint32_t IcsrPendSvClrMsk = 1 << IcsrPendSvClrPos;
 	static constexpr uint32_t IcsrPendSvClr = IcsrPendSvClrMsk;
+
+	static constexpr uint32_t ScbCpacrEnableFpu = 0b1111 << 20;
 
 	static constexpr std::size_t SystickReloadBits = 24;
 	static constexpr uint32_t SystickReloadMask = (1 << SystickReloadBits) - 1;
