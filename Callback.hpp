@@ -59,7 +59,7 @@ namespace opsy
 /**
  * Defines the default storage size for callback data
  */
-static constexpr std::size_t kDefaultCallbackStorageSize = 4;
+static constexpr std::size_t kDefaultCallbackStorageSize = 3;
 
 /**
  * @brief The base definition of a @c Callback, which will be specialized by @c Callback<ReturnType(Arguments...), StorageSize> for concrete implementation
@@ -96,6 +96,8 @@ public:
 			m_valid(std::is_destructible<Function>::value && !std::is_trivially_destructible<Function>::value ? ValidDestructor : ValidNoDestructor)
 	{
 		static_assert(sizeof(CallbackImpl<Function>) < FullSize, "Cannot store the invokable in the callback");
+		static_assert(!std::is_same_v<std::remove_cv_t<std::remove_reference_t<Function>>, Callback>, "Do not wrap Callback in a Callback, you probably meant to move it");
+
 		new (&m_storage) CallbackImpl<Function>(std::forward<Function>(function));
 	}
 
