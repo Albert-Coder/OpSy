@@ -2,8 +2,9 @@ var searchData=
 [
   ['embeddedconstiterator',['EmbeddedConstIterator',['../classopsy_1_1_embedded_const_iterator.html#a3abd4fc867589ced079ab2819c43e9a3',1,'opsy::EmbeddedConstIterator']]],
   ['embeddediterator',['EmbeddedIterator',['../classopsy_1_1_embedded_iterator.html#a48157cc94673864dfda90576d4660a69',1,'opsy::EmbeddedIterator']]],
-  ['embeddedlist',['EmbeddedList',['../classopsy_1_1_embedded_list.html#aca536c93e4d0df0b8252553e20c27fe4',1,'opsy::EmbeddedList::EmbeddedList()=default'],['../classopsy_1_1_embedded_list.html#ac8df6db5566b65eeddadc05365744fc4',1,'opsy::EmbeddedList::EmbeddedList(EmbeddedList &amp;&amp;other)']]],
+  ['embeddedlist',['EmbeddedList',['../classopsy_1_1_embedded_list.html#aca536c93e4d0df0b8252553e20c27fe4',1,'opsy::EmbeddedList::EmbeddedList()=default'],['../classopsy_1_1_embedded_list.html#af884b674f3e432807e886c76b602e574',1,'opsy::EmbeddedList::EmbeddedList(EmbeddedList &amp;&amp;other)']]],
   ['empty',['empty',['../classopsy_1_1_embedded_list.html#a491d0af5c64121e421f529d002768ee6',1,'opsy::EmbeddedList']]],
+  ['enablefpu',['enableFpu',['../classopsy_1_1_cortex_m.html#a345d43d180aaf2b829592d907697b879',1,'opsy::CortexM']]],
   ['enableinterrupt',['enableInterrupt',['../classopsy_1_1_cortex_m.html#aa159c649abd7027ab4a13c871b0fcbf4',1,'opsy::CortexM']]],
   ['enableinterrupts',['enableInterrupts',['../classopsy_1_1_cortex_m.html#aa192cf8e747ea795220a9c5c520e1c65',1,'opsy::CortexM']]],
   ['enablesystick',['enableSystick',['../classopsy_1_1_cortex_m.html#a0f7aeb41940f85a5782e02ac2782364d',1,'opsy::CortexM']]],

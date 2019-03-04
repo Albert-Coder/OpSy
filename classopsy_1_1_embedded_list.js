@@ -9,7 +9,7 @@ var classopsy_1_1_embedded_list =
     [ "size_type", "classopsy_1_1_embedded_list.html#a8ce58137465db65e0af854313c15b13b", null ],
     [ "value_type", "classopsy_1_1_embedded_list.html#a9a3223fa1db446a90a6d2d67d3f8e53b", null ],
     [ "EmbeddedList", "classopsy_1_1_embedded_list.html#aca536c93e4d0df0b8252553e20c27fe4", null ],
-    [ "EmbeddedList", "classopsy_1_1_embedded_list.html#ac8df6db5566b65eeddadc05365744fc4", null ],
+    [ "EmbeddedList", "classopsy_1_1_embedded_list.html#af884b674f3e432807e886c76b602e574", null ],
     [ "begin", "classopsy_1_1_embedded_list.html#aba06d6c068415799cfee0890c32a60c6", null ],
     [ "begin", "classopsy_1_1_embedded_list.html#a7b0ec63b8f2418e2fdfcfcde2136e7a7", null ],
     [ "cbegin", "classopsy_1_1_embedded_list.html#a679a1eda0e042daa4f2a31fb8bb65141", null ],

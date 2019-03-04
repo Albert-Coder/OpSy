@@ -6,5 +6,5 @@ var classopsy_1_1_callback_3_01_return_type_07_arguments_8_8_8_08_00_01_storage_
     [ "operator bool", "classopsy_1_1_callback_3_01_return_type_07_arguments_8_8_8_08_00_01_storage_size_01_4.html#addff47e85c3715397295ff25b42a810e", null ],
     [ "operator()", "classopsy_1_1_callback_3_01_return_type_07_arguments_8_8_8_08_00_01_storage_size_01_4.html#ab1553503e57a7ebb196913dbab7bed7e", null ],
     [ "operator()", "classopsy_1_1_callback_3_01_return_type_07_arguments_8_8_8_08_00_01_storage_size_01_4.html#a5d872846df0af165f8f7e38c3784ee2b", null ],
-    [ "operator=", "classopsy_1_1_callback_3_01_return_type_07_arguments_8_8_8_08_00_01_storage_size_01_4.html#a5b54cd6cacced05a75987fdc5aa939cc", null ]
+    [ "operator=", "classopsy_1_1_callback_3_01_return_type_07_arguments_8_8_8_08_00_01_storage_size_01_4.html#a561a40cfcf2ec50a1b077a19d4e4f3f8", null ]
 ];
