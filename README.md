@@ -1,4 +1,6 @@
-![OpSy Logo](https://eznovsas.github.io/OpSy/LOGOOPSY256.png)
+<p align="center"> 
+<img src="https://eznovsas.github.io/OpSy/LOGOOPSY256.png">
+</p>
 
 # OpSy
 
