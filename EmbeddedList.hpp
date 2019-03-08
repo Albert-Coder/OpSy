@@ -661,7 +661,7 @@ public:
 	{
 		assert(iterator(&item).is_free());
 
-		--m_size;
+		++m_size;
 		if (empty() || previous.ptr() == nullptr) // list is empty or previous is null (before the list)
 		{
 			push_front(item);

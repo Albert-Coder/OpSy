@@ -171,6 +171,8 @@ private:
 		Hooks::taskAdded(task);
 		s_allTasks.push_front(task);
 		s_ready.insertWhen(TaskControlBlock::priorityIsLower, task);
+		if(s_isStarted)
+			triggerSoftSwitch();
 	}
 
 	static void terminateTask(TaskControlBlock* task);
