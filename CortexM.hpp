@@ -674,6 +674,80 @@ public:
 		instructionBarrier();
 	}
 
+	/**
+	 * @brief Loads a specific address and set the exclusive monitor
+	 * @param ptr The address to load from
+	 * @return The loaded address
+	 * @remark It is possible only for a size of 1, 2 or 4 bytes
+	 */
+	template<typename T>
+	T inline loadExclusive(T* ptr)
+	{
+	    T result;
+
+		if constexpr(sizeof(T) == 1)
+		{
+			asm volatile("ldrexb %[result], [%[ptr]]"
+			: [result] "=r" (result)
+			: [ptr] "r" (ptr));
+		}
+		else if constexpr(sizeof(T) == 2)
+		{
+			asm volatile("ldrexh %[result], [%[ptr]]"
+			: [result] "=r" (result)
+			: [ptr] "r" (ptr));
+		}
+		else if constexpr(sizeof(T) == 4)
+		{
+			asm volatile("ldrex %[result], [%[ptr]]"
+			: [result] "=r" (result)
+			: [ptr] "r" (ptr));
+		}
+		else
+		{
+	        static_assert("Wrong template parameter size for loadExclusive");
+		}
+
+	    return result;
+	}
+
+	/**
+	 * @brief Tries to store the value to a specific address with excluve monitor check
+	 * @param ptr The pointer to store to
+	 * @param value The value to store
+	 * @return @c 0 if the store is effective, @c 1 otherwise
+	 */
+	template<typename T>
+	uint32_t inline storeExclusive(T* ptr, T value)
+	{
+	    uint32_t result;
+
+	    if constexpr(sizeof(T) == 1)
+	    {
+			asm volatile("strexb %[result], %[value], [%[ptr]]"
+			: [result] "=r" (result)
+			: [ptr] "r" (ptr), [value] "r" (value));
+			}
+	    else if constexpr(sizeof(T) == 2)
+	    {
+			asm volatile("strexh %[result], %[value], [%[ptr]]"
+			: [result] "=r" (result)
+			: [ptr] "r" (ptr), [value] "r" (value));
+			}
+	    else if constexpr(sizeof(T) == 4)
+	    {
+			asm volatile("strex %[result], %[value], [%[ptr]]"
+			: [result] "=r" (result)
+			: [ptr] "r" (ptr), [value] "r" (value));
+			}
+	    else
+	    {
+	        static_assert("Wrong template parameter size for storeExclusive");
+	    }
+
+	    return result;
+	}
+
 private:
 
 	static constexpr const uint32_t ScsAddress = 0xE000E000;
