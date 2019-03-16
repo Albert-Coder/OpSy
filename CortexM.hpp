@@ -619,9 +619,9 @@ public:
 	{
 		uint32_t result;
 		asm volatile(
-				"mrs %[output], basepri \t\n" // get previous value of basepri
-				"msr basepri, %[input] \t\n"// set the new value
-				"isb \t\n"// make sure it is into effect before returning
+				"mrs %[output], basepri \n\t" // get previous value of basepri
+				"msr basepri, %[input] \n\t"// set the new value
+				"isb"// make sure it is into effect before returning
 				: [output] "=&r" (result)
 				: [input] "r" (priority.value())
 				: );
@@ -634,8 +634,8 @@ public:
 	static inline void disableInterrupts() __attribute__((always_inline))
 	{
 		asm volatile(
-				"cpsid i \t\n"
-				"isb \t\n"
+				"cpsid i \n\t"
+				"isb"
 				: : : "memory");
 	}
 
@@ -646,8 +646,8 @@ public:
 	static inline void enableInterrupts() __attribute__((always_inline))
 	{
 		asm volatile(
-				"cpsie i \t\n"
-				"isb \t\n"
+				"cpsie i \n\t"
+				"isb"
 				: : : "memory");
 	}
 
@@ -658,9 +658,7 @@ public:
 	static inline bool isPrimask() __attribute__((always_inline))
 	{
 		uint32_t value;
-		asm volatile(
-				"mrs %[output], primask \t\n" // get previous value of basepri
-				: [output] "=r" (value));
+		asm volatile("mrs %[output], primask" : [output] "=r" (value));
 		return value != 0;
 	}
 
@@ -681,7 +679,7 @@ public:
 	 * @remark It is possible only for a size of 1, 2 or 4 bytes
 	 */
 	template<typename T>
-	T inline loadExclusive(T* ptr)
+	static inline T loadExclusive(T* ptr)
 	{
 	    T result;
 
@@ -718,7 +716,7 @@ public:
 	 * @return @c 0 if the store is effective, @c 1 otherwise
 	 */
 	template<typename T>
-	uint32_t inline storeExclusive(T* ptr, T value)
+	static inline uint32_t storeExclusive(T* ptr, T value)
 	{
 	    uint32_t result;
 
@@ -748,7 +746,21 @@ public:
 	    return result;
 	}
 
+	static inline uint32_t cycleCount()
+	{
+		return MemoryRegister<uint32_t>(CycCntAddress).get();
+	}
+
+	static inline void cycleCount(uint32_t value)
+	{
+		MemoryRegister<uint32_t>(CycCntAddress).set(value);
+	}
+
 private:
+
+	static constexpr const uint32_t DwtAddress = 0xE0001000;
+
+	static constexpr uint32_t CycCntAddress = DwtAddress + 0x004;
 
 	static constexpr const uint32_t ScsAddress = 0xE000E000;
 

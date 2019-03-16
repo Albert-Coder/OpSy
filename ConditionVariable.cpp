@@ -55,10 +55,10 @@ void ConditionVariable::wait()
 	assert(m_mutex.priority().value_or(Scheduler::kServiceCallPriority).maskedValue<kPreemptionBits>() >= Scheduler::kServiceCallPriority.maskedValue<kPreemptionBits>()); // mutex priority can't be higher than service call
 
 	asm volatile(
-			"mov r0, %[this_ptr] \t\n"
-			"mov r1, #-1 \t\n"
-			"mov r2, #0 \t\n"
-			"svc %[immediate] \t\n"
+			"mov r0, %[this_ptr] \n\t"
+			"mov r1, #-1 \n\t"
+			"mov r2, #0 \n\t"
+			"svc %[immediate]"
 			:
 			: [immediate] "I" (Scheduler::ServiceCallNumber::Wait), [this_ptr] "r" (this)
 			: "r0", "r1", "r2");
@@ -70,10 +70,10 @@ void ConditionVariable::wait(Mutex& mutex)
 	assert(m_mutex.priority().value_or(Scheduler::kServiceCallPriority).maskedValue<kPreemptionBits>() >= Scheduler::kServiceCallPriority.maskedValue<kPreemptionBits>()); // mutex priority can't be higher than service call
 
 	asm volatile(
-			"mov r0, %[this_ptr] \t\n"
-			"mov r1, #-1 \t\n"
-			"mov r2, %[mutex] \t\n"
-			"svc %[immediate] \t\n"
+			"mov r0, %[this_ptr] \n\t"
+			"mov r1, #-1 \n\t"
+			"mov r2, %[mutex] \n\t"
+			"svc %[immediate]"
 			:
 			: [immediate] "I" (Scheduler::ServiceCallNumber::Wait), [this_ptr] "r" (this), [mutex] "r" (&mutex)
 			: "r0", "r1", "r2");
@@ -86,11 +86,11 @@ std::cv_status ConditionVariable::wait_for(duration timeout)
 
 	uint32_t result;
 	asm volatile(
-			"mov r0, %[this_ptr] \t\n"
-			"mov r1, %[duration] \t\n"
-			"mov r2, #0 \t\n"
-			"svc %[immediate] \t\n"
-			"mov %[result], r0 \t\n"
+			"mov r0, %[this_ptr] \n\t"
+			"mov r1, %[duration] \n\t"
+			"mov r2, #0 \n\t"
+			"svc %[immediate] \n\t"
+			"mov %[result], r0"
 			: [result] "=r" (result)
 			: [immediate] "I" (Scheduler::ServiceCallNumber::Wait), [this_ptr] "r" (this), [duration] "r" (timeout.count())
 			: "r0", "r1", "r2");
@@ -107,11 +107,11 @@ std::cv_status ConditionVariable::wait_for(Mutex& mutex, duration timeout)
 	uint32_t result;
 
 	asm volatile(
-			"mov r0, %[this_ptr] \t\n"
-			"mov r1, %[duration] \t\n"
-			"mov r2, %[mutex] \t\n"
-			"svc %[immediate] \t\n"
-			"mov %[result], r0 \t\n"
+			"mov r0, %[this_ptr] \n\t"
+			"mov r1, %[duration] \n\t"
+			"mov r2, %[mutex] \n\t"
+			"svc %[immediate] \n\t"
+			"mov %[result], r0"
 			: [result] "=r" (result)
 			: [immediate] "I" (Scheduler::ServiceCallNumber::Wait), [this_ptr] "r" (this), [duration] "r" (timeout.count()), [mutex] "r" (&mutex)
 			: "r0", "r1", "r2");

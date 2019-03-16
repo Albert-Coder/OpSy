@@ -42,8 +42,8 @@ bool TaskControlBlock::stop()
 		return false;
 
 	asm volatile(
-			"mov r0, %[task] \t\n"
-			"svc %[immediate] \t\n"
+			"mov r0, %[task] \n\t"
+			"svc %[immediate]"
 			:
 			: [immediate] "I" (Scheduler::ServiceCallNumber::Terminate), [task] "r" (this)
 			: "r0");

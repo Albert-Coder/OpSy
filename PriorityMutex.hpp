@@ -99,7 +99,7 @@ public:
 	 * @return A reference to @c this
 	 * @warning The current @c Mutex must NOT be locked before being assigned
 	 */
-	constexpr PriorityMutex& operator=(PriorityMutex&& from)
+	PriorityMutex& operator=(PriorityMutex&& from)
 	{
 		assert(!m_locked); // trying to override a locked mutex !
 		m_locked = from.m_locked;

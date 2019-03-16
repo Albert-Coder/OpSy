@@ -381,8 +381,8 @@ private:
 	static void __attribute__((naked)) noReturn()
 	{
 		asm volatile(
-				"nop \t\n"
-				"bkpt 0 \t\n");
+				"nop \n\t"
+				"bkpt 0");
 	}
 };
 

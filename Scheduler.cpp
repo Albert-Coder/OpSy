@@ -106,9 +106,9 @@ bool __attribute__((section(".text.opsy.doswitch"))) Scheduler::doSwitch()
 void __attribute__((naked)) Scheduler::terminateTask(TaskControlBlock* task)
 {
 	asm volatile(
-			"nop \t\n"
-			"mov r0, %[task] \t\n"
-			"svc %[immediate] \t\n"
+			"nop \n\t"
+			"mov r0, %[task] \n\t"
+			"svc %[immediate]"
 			:
 			: [immediate] "I" (ServiceCallNumber::Terminate), [task] "r" (task)
 			: "r0");
@@ -335,27 +335,27 @@ void __attribute__((section(".text.opsy.isr.systick"))) SysTick_Handler()
 void __attribute__((optimize("O0"), naked, section(".text.opsy.isr.pendsv"))) PendSV_Handler()
 {
 	asm volatile(
-			"ldr R1, =%[mask]\t\n"
-			"msr BASEPRI, R1 \t\n"
-			"isb \t\n"
-			"mrs R0, PSP \t\n"
-			"tst LR, #16 \t\n"
-			"it EQ \t\n"
-			"vstmdbeq R0!, {S16-S31} \t\n"
-			"mov R2, LR\t\n"
-			"mrs R3, CONTROL\t\n"
-			"stmdb R0!, {R2-R11} \t\n"
-			"bl %[handler] \t\n"
-			"ldmia R0!, {R2-R11} \t\n"
-			"mov LR, R2\t\n"
-			"msr CONTROL, R3\t\n"
-			"tst LR, #16 \t\n"
-			"it EQ \t\n"
-			"vldmiaeq R0!, {S16-S31} \t\n"
-			"msr PSP, R0 \t\n"
-			"msr BASEPRI, R1 \t\n"
-			"isb \t\n"
-			"bx LR \t\n"
+			"ldr R1, =%[mask]\n\t"
+			"msr BASEPRI, R1 \n\t"
+			"isb \n\t"
+			"mrs R0, PSP \n\t"
+			"tst LR, #16 \n\t"
+			"it EQ \n\t"
+			"vstmdbeq R0!, {S16-S31} \n\t"
+			"mov R2, LR\n\t"
+			"mrs R3, CONTROL\n\t"
+			"stmdb R0!, {R2-R11} \n\t"
+			"bl %[handler] \n\t"
+			"ldmia R0!, {R2-R11} \n\t"
+			"mov LR, R2\n\t"
+			"msr CONTROL, R3\n\t"
+			"tst LR, #16 \n\t"
+			"it EQ \n\t"
+			"vldmiaeq R0!, {S16-S31} \n\t"
+			"msr PSP, R0 \n\t"
+			"msr BASEPRI, R1 \n\t"
+			"isb \n\t"
+			"bx LR"
 			:
 			: [handler] "g" (opsy::Scheduler::pendSvHandler), [mask]"I"(opsy::Scheduler::kServiceCallPriority.value())
 			: "r0", "r1", "r2", "r3");
@@ -364,22 +364,22 @@ void __attribute__((optimize("O0"), naked, section(".text.opsy.isr.pendsv"))) Pe
 void __attribute__((optimize("O0"), naked, section(".text.opsy.isr.svc"))) SVC_Handler()
 {
 	asm volatile(
-			"tst LR, #0x4 \t\n"
-			"ite EQ \t\n"
-			"mrseq R0, MSP \t\n"
-			"mrsne R0, PSP \t\n"
-			"tst LR, #0x8 \t\n"
-			"ite EQ \t\n"
-			"ldreq R2, =0x0 \t\n"
-			"ldrne R2, =0x1 \t\n"
-			"ldr R1, [R0,#24] \t\n"
-			"ldrb R1, [R1,#-2] \t\n"
-			"push {LR} \t\n"
-			"bl %[handler] \t\n"
-			"isb \t\n"
-			"dsb \t\n"
-			"pop {LR} \t\n"
-			"bx LR \t\n"
+			"tst LR, #0x4 \n\t"
+			"ite EQ \n\t"
+			"mrseq R0, MSP \n\t"
+			"mrsne R0, PSP \n\t"
+			"tst LR, #0x8 \n\t"
+			"ite EQ \n\t"
+			"ldreq R2, =0x0 \n\t"
+			"ldrne R2, =0x1 \n\t"
+			"ldr R1, [R0,#24] \n\t"
+			"ldrb R1, [R1,#-2] \n\t"
+			"push {LR} \n\t"
+			"bl %[handler] \n\t"
+			"isb \n\t"
+			"dsb \n\t"
+			"pop {LR} \n\t"
+			"bx LR"
 			:
 			:[handler] "g" (opsy::Scheduler::serviceCallHandler)
 			: "r0", "r1", "r2");

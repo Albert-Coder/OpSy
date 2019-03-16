@@ -57,8 +57,8 @@ namespace opsy
 void inline sleep_for(duration t)
 {
 	asm volatile(
-			"mov r0, %[count] \t\n"
-			"svc %[immediate] \t\n"
+			"mov r0, %[count] \n\t"
+			"svc %[immediate]"
 			:
 			: [immediate] "I" (Scheduler::ServiceCallNumber::Sleep), [count] "r" (t.count())
 			: "r0");

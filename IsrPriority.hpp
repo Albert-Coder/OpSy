@@ -79,6 +79,12 @@ public:
 
 	}
 
+	constexpr IsrPriority& operator=(const IsrPriority& other)
+	{
+		m_value = other.m_value;
+		return *this;
+	}
+
 	/**
 	 * @brief Preemption level of the @c IsrPriority
 	 * @return The preemption level
