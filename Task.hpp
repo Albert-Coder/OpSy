@@ -420,6 +420,12 @@ template<std::size_t StackSize = 64>
 IdleTask<StackSize> DefaultIdle = IdleTask<StackSize>([]()
 {
 	while(true)
-	CortexM::wfi();
+	{
+#ifndef NDEBUG
+		CortexM::nop();
+#else
+		CortexM::wfi();
+#endif
+	}
 });
 }
