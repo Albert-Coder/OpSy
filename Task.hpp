@@ -309,9 +309,9 @@ private:
 		Context* context = reinterpret_cast<Context*>(ptr);
 
 		if ((context->lr & kFpFlag) == 0) // there is a floating point context
-			ptr -= sizeof(FpContext) / sizeof(StackItem);
+			ptr += (sizeof(Context) + sizeof(FpContext)) / sizeof(StackItem);
 		else
-			ptr -= sizeof(Context) / sizeof(StackItem);
+			ptr += sizeof(Context) / sizeof(StackItem);
 
 		StackFrame* frame = reinterpret_cast<StackFrame*>(ptr); // we are at the top of the frame stacked by cortex on exception entry
 
