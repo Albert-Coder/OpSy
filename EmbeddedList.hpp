@@ -669,13 +669,14 @@ public:
 		}
 
 		auto i = iterator(&item);
+		auto next = previous.next();
 
-		i.next(previous.next()); // prepare insertion
+		i.next(next); // prepare insertion
 		i.previous(previous.ptr());
 
 		previous.next(i.ptr()); // and stitch both sides
-		if (previous.next() != nullptr)
-			iterator(previous.next()).previous(i.ptr());
+		if (next != nullptr)
+			iterator(next).previous(i.ptr());
 
 		return iterator(&item);
 	}
