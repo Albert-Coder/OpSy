@@ -67,6 +67,14 @@ static constexpr std::size_t kDefaultCallbackStorageSize = 3;
 template<typename, std::size_t StorageSize = kDefaultCallbackStorageSize>
 class Callback;
 
+namespace
+{
+    enum valid_t
+	{
+		Invalid = 0, ValidNoDestructor, ValidDestructor,
+	};
+}
+
 /**
  * @brief A callback.
  * A callback is used as a way to defer code execution. For example, when you ask a peripheral to do something, you may want
@@ -79,6 +87,9 @@ class Callback;
 template<std::size_t StorageSize, typename ReturnType, typename ... Arguments>
 class Callback<ReturnType(Arguments...), StorageSize>
 {
+    template<typename, std::size_t>
+    friend class Callback;
+
 public:
 
 	/**
@@ -108,9 +119,12 @@ public:
 	 * Creates a @c Callback by moving data from another @c Callback
 	 * @param from The @c Callback to move data from
 	 */
-	constexpr Callback(Callback&& from) :
-			m_valid(from.m_valid), m_storage(from.m_storage)
+    template<std::size_t FromSize>
+	constexpr Callback(Callback<ReturnType(Arguments...), FromSize>&& from) :
+			m_valid(from.m_valid)
 	{
+        static_assert(StorageSize >= FromSize, "You can only increase the storage size, not decrease it");        
+        *reinterpret_cast<typename Callback<ReturnType(Arguments...), FromSize>::Storage*>(&m_storage) = from.m_storage; // copy only necessary data
 		from.m_valid = Invalid;
 	}
 
@@ -118,14 +132,17 @@ public:
 	 * Assigns @c Callback from another @c Callback by moving data
 	 * @param from The @c Callback to move from
 	 */
-	constexpr Callback& operator=(Callback&& from)
+    template<std::size_t FromSize>
+	constexpr Callback& operator=(Callback<ReturnType(Arguments...), FromSize>&& from)
 	{
+        static_assert(StorageSize >= FromSize, "You can only increase the storage size, not decrease it");
+
 		if (m_valid == ValidDestructor)
 			delete get();
 
 		m_valid = from.m_valid;
 		if (m_valid != Invalid)
-			m_storage = from.m_storage;
+			*reinterpret_cast<typename Callback<ReturnType(Arguments...), FromSize>::Storage*>(&m_storage) = from.m_storage; // copy only necessary data
 		from.m_valid = Invalid;
 		return *this;
 	}
@@ -247,11 +264,6 @@ public:
 	{
 		return reinterpret_cast<const ICallback*>(&m_storage);
 	}
-
-	enum valid_t
-	{
-		Invalid = 0, ValidNoDestructor, ValidDestructor,
-	};
 
 	valid_t m_valid{ Invalid };
 	Storage m_storage{ };
