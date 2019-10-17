@@ -67,13 +67,10 @@ static constexpr std::size_t kDefaultCallbackStorageSize = 3;
 template<typename, std::size_t StorageSize = kDefaultCallbackStorageSize>
 class Callback;
 
-namespace
+enum callback_validity_t
 {
-    enum valid_t
-	{
-		Invalid = 0, ValidNoDestructor, ValidDestructor,
-	};
-}
+	Invalid = 0, ValidNoDestructor, ValidDestructor,
+};
 
 /**
  * @brief A callback.
@@ -148,6 +145,21 @@ public:
 	}
 
 	/**
+	 * Assigns @c Callback from a function
+	 * @param function The function to encapsulate
+	 */
+	template<typename Function>
+	constexpr Callback& operator=(Function&& function)
+	{
+		static_assert(sizeof(CallbackImpl<Function>) < FullSize, "Cannot store the invokable in the callback");
+		static_assert(!std::is_same_v<std::remove_cv_t<std::remove_reference_t<Function>>, Callback>, "Do not wrap Callback in a Callback, you probably meant to move it");
+
+		m_valid = (std::is_destructible<Function>::value && !std::is_trivially_destructible<Function>::value) ? ValidDestructor : ValidNoDestructor;
+		new (&m_storage) CallbackImpl<Function>(std::forward<Function>(function));
+		return *this;
+	}
+
+	/**
 	 * Calls the @c Callback function if it contains one
 	 * @tparam The arguments types
 	 * @param args The arguments to pass to the function
@@ -205,7 +217,7 @@ public:
 	 */
 	constexpr operator bool() const
 	{
-	return m_valid != Invalid;
+		return m_valid != Invalid;
 	}
 
 	~Callback()
@@ -265,7 +277,7 @@ public:
 		return reinterpret_cast<const ICallback*>(&m_storage);
 	}
 
-	valid_t m_valid{ Invalid };
+	callback_validity_t m_valid{ Invalid };
 	Storage m_storage{ };
 };
 }
